@@ -32,7 +32,7 @@ public class GameForm extends JFrame {
     private List<JLabel> creatures;
     private DefaultListModel<Item> items;
 
-    private Timer timer = new Timer(50, e -> tick(e));
+    private Timer timer = new Timer(50, this::tick);
 
     private Arena arena;
 
