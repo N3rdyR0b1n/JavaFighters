@@ -88,8 +88,8 @@ public class MainMenuForm extends JFrame{
         Random random = new Random();
         int max = Items.getItemCount();
         for (int i = 0; i < 12; i++) {
-            p1inventory.add(Items.getItem(random.nextInt( max)));
-            p2inventory.add(Items.getItem(random.nextInt( max)));
+            p1inventory.add(Items.getItem(random.nextInt(max)));
+            p2inventory.add(Items.getItem(random.nextInt(max)));
         }
 
         Player player1 = new Player(p1characters, "Player_1", p1inventory);

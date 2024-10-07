@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class Ability {
 
-    private String name;
+    protected String name;
     private int cooldown;
     private int cooldownProgress;
     private int targets;

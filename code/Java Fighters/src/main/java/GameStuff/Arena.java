@@ -47,9 +47,8 @@ public class Arena {
         TextUtil.fontify(component);
         textOutput.add(component);
     }
-    public List<Item> getRelevantItems() {
-        return player1.getInventory();
-
+    public List<Item> getRelevantItems(boolean left) {
+        return left ? player1.getInventory() : player2.getInventory();
     }
 
 

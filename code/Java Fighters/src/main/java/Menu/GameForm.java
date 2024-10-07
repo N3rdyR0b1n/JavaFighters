@@ -1,5 +1,6 @@
 package Menu;
 
+import GameStuff.Ability;
 import GameStuff.Arena;
 import GameStuff.Creature;
 import Item.Item;
@@ -10,8 +11,10 @@ import Util.TextUtil;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class GameForm extends JFrame {
 
@@ -30,7 +33,7 @@ public class GameForm extends JFrame {
     private JList list1;
     private JScrollPane scrollPane;
     private List<JLabel> creatures;
-    private DefaultListModel<Item> items;
+    private DefaultListModel<Ability> jlist = new DefaultListModel<Ability>();
     private int currentCharacter = 0;
 
     private Timer timer = new Timer(50, this::tick);
@@ -39,13 +42,14 @@ public class GameForm extends JFrame {
 
     public GameForm(Arena arena) {
         super();
+        list1.setModel(jlist);
         setContentPane(mainPanel);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         pack();
         setSize(MenuInfo.WIDTH, MenuInfo.HEIGHT);
         timer.start();
         this.arena = arena;
-
+        loadElements();
 
 
         setVisible(true);
@@ -58,13 +62,11 @@ public class GameForm extends JFrame {
 
 
     public void load() {
-        loadElements();
         loadGameObjects();
+        keyBindingInit();
     }
 
     private void loadElements() {
-        items = new DefaultListModel<>();
-        list1.setModel(items);
         creatures = new ArrayList<>();
         creatures.add(creatureA1);
         creatures.add(creatureA2);
@@ -79,7 +81,6 @@ public class GameForm extends JFrame {
         for (Component component : panel.getComponents()) {
             TextUtil.fontify(component);
         }
-        keyBindingInit();
     }
     private void loadGameObjects() {
         updateCharacters();
@@ -153,7 +154,58 @@ public class GameForm extends JFrame {
                 arena.getCreatures().get(currentCharacter).onTurn(arena);
             }
         });
+
+        fightButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loadButtonOption(0);
+            }
+        });
+        actButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loadButtonOption(1);
+            }
+        });
+        spareButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loadButtonOption(2);
+            }
+        });
+        defendButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loadButtonOption(3);
+            }
+        });
+        itemButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loadInventory();
+            }
+        });
     }
 
+    private void loadButtonOption(int optionType) {
+        List<Ability> choices = arena.getCreatures().get(currentCharacter).getByType(optionType);
+        jlist.clear();
+        if (choices != null) {
+            addAll(choices);
+        }
+    }
+    private void loadInventory() {
+        List<Item> choices = arena.getRelevantItems(currentCharacter < 3);
+        ArrayList<Ability> items = new ArrayList<Ability>(choices);
+        jlist.clear();
+        if (choices != null) {
+            addAll(choices);
+        }
+    }
+    private <T extends Ability> void addAll(List<T> list) {
+        for (Ability ability : list) {
+            jlist.addElement(ability);
+        }
+    }
 
 }

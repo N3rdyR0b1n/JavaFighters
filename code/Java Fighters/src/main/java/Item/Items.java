@@ -9,11 +9,11 @@ public class Items {
 
 
 
-    public static Item APPLE = registerItem(new Item("Apple"));
-    public static Item HEALING_POTION = registerItem(new Item("Healing Potion"));
-    public static Item TUNA_SALAD = registerItem(new Item("Tuna Salad"));
-    public static Item GOLDEN_APPLE = registerItem(new Item("Golden Apple"));
-
+    public static Item APPLE = registerItem(new Item("Apple", "ate the", 4, 6));
+    public static Item HEALING_POTION = registerItem(new Item("Healing Potion", "drank the", 10, 20));
+    public static Item TUNA_SALAD = registerItem(new Item("Tuna Salad", "devoured the", 15, 15));
+    public static Item GOLDEN_APPLE = registerItem(new Item("Golden Apple", "ate the", 1, 40));
+    public static Item PILK = registerItem(new Item("Pilk", "drank the", -20, 50));
     public static Item registerItem(Item item) {
         item.setId(GAME_ITEMS.size());
         GAME_ITEMS.put(item.getId(), item);
@@ -21,10 +21,7 @@ public class Items {
     }
 
     public static void init() {
-        APPLE = registerItem(new Item("Apple"));
-        HEALING_POTION = registerItem(new Item("Healing Potion"));
-        TUNA_SALAD = registerItem(new Item("Tuna Salad"));
-        GOLDEN_APPLE = registerItem(new Item("Golden Apple"));
+
     }
 
     public static int getItemCount() {

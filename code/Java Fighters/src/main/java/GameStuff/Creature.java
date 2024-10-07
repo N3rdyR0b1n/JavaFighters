@@ -90,6 +90,23 @@ public abstract class Creature {
     public void endTurn(Arena arena) {
         hasTurn = false;
     }
+    public List<Ability> getByType(int type) {
+        switch (type) {
+            case 0:
+                return attacks;
+            case 1:
+                return actions;
+            case 2:
+                return spares;
+            case 3:
+                return defense;
+            default:
+                return null;
+        }
+    }
 
-
+    @Override
+    public String toString() {
+        return name;
+    }
 }
