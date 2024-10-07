@@ -1,11 +1,12 @@
 package Creatures;
 
 import Abilities.custom.ShootAttackAbility;
+import GameStuff.Arena;
 import GameStuff.Creature;
 
 public class GunGuy extends Creature {
-    private  String STAND = "cowboy.png";
-    private static String SELECTED = "";
+    private static String STAND = "cowboy.png";
+    private static String SELECTED = "cowboy_turn.png";
     private String pose = STAND;
 
     public GunGuy(String name) {
@@ -19,7 +20,17 @@ public class GunGuy extends Creature {
         return super.getImageSource() + pose;
     }
 
-    public GunGuy(String name, int hp, String fileName) {
-        super(name, hp, fileName);
+    @Override
+    public void onTurn(Arena arena) {
+        super.onTurn(arena);
+        pose = SELECTED;
     }
+    @Override
+    public void endTurn(Arena arena) {
+        super.endTurn(arena);
+        pose = STAND;
+    }
+
+
+
 }

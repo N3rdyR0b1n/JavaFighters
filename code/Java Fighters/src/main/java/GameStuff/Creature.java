@@ -18,7 +18,8 @@ public abstract class Creature {
     protected List<Ability> attacks;
     protected List<Ability> spares;
     protected List<Ability> defense;
-
+    protected String pose;
+    boolean hasTurn =false;
     private ArrayList<List<Ability>> allActions;
     protected int extraDamage;
 
@@ -70,7 +71,7 @@ public abstract class Creature {
     }
 
     public String getImageSource() {
-        return FileUtil.CHARACTERS+fileName;
+        return FileUtil.CHARACTERS+fileName + pose;
     }
 
     public int damageMod(int initialDamage) {
@@ -84,5 +85,12 @@ public abstract class Creature {
             }
         }
     }
+    public void onTurn(Arena arena) {
+        hasTurn = true;
+    }
+    public void endTurn(Arena arena) {
+        hasTurn = false;
+    }
+
 
 }

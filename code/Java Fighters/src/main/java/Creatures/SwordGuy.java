@@ -1,6 +1,7 @@
 package Creatures;
 
 
+import GameStuff.Arena;
 import GameStuff.Creature;
 
 public class SwordGuy extends Creature {
@@ -16,4 +17,6 @@ public class SwordGuy extends Creature {
     public String getImageSource() {
         return super.getImageSource() + pose;
     }
+
+
 }

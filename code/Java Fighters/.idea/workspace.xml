@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0527c8a4-1ad2-4f7a-879d-bf32e3fb574d" name="Changes" comment="renamed main.java.item to item in menu (it was annoying me)">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/fist/brawler_turn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/sword/sword_turn.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Creatures/BrawlerGuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creatures/BrawlerGuy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Creatures/GunGuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creatures/GunGuy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Creatures/SwordGuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creatures/SwordGuy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +37,18 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/NielsvandenHeuvel/OneDrive - Fam. van den Heuvel/TUE/Java_Fighters_PC/JavaFighters/code/Java Fighters",
+    "last_opened_file_path": "C:/Users/NielsvandenHeuvel/OneDrive - Fam. van den Heuvel/TUE/Java_Fighters_PC/JavaFighters/code/Java Fighters/src/main/resources/assets/textures/characters/fist",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\NielsvandenHeuvel\OneDrive - Fam. van den Heuvel\TUE\Java_Fighters_PC\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\fist" />
+      <recent name="C:\Users\NielsvandenHeuvel\OneDrive - Fam. van den Heuvel\TUE\Java_Fighters_PC\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\sword" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Java Fighter" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
