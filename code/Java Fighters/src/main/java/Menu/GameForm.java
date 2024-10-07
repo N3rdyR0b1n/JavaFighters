@@ -124,6 +124,7 @@ public class GameForm extends JFrame {
         InputMap inputMap = contentPane.getInputMap(condition);
         ActionMap actionMap = contentPane.getActionMap();
         String next = "next";
+        String back = "back";
         inputMap.put(KeyStroke.getKeyStroke(KeyUtil.ENTER_KEY, 0), next);
         actionMap.put(next, new AbstractAction() {
             @Override
@@ -132,6 +133,22 @@ public class GameForm extends JFrame {
                 currentCharacter++;
                 if (currentCharacter >= creatures.size()) {
                     currentCharacter=0;
+                }
+                arena.getCreatures().get(currentCharacter).onTurn(arena);
+            }
+        });
+
+        inputMap.put(KeyStroke.getKeyStroke(KeyUtil.PREV, 0), back);
+        actionMap.put(back, new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (currentCharacter % 3 == 0) {
+                    return;
+                }
+                arena.getCreatures().get(currentCharacter).endTurn(arena);
+                currentCharacter--;
+                if (currentCharacter < 0) {
+                    currentCharacter= arena.getCreatures().size()-1;
                 }
                 arena.getCreatures().get(currentCharacter).onTurn(arena);
             }
