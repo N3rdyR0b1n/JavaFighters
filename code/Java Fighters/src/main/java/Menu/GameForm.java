@@ -41,10 +41,10 @@ public class GameForm extends JFrame {
         setContentPane(mainPanel);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         pack();
-        setVisible(true);
         setSize(MenuInfo.WIDTH, MenuInfo.HEIGHT);
         timer.start();
         this.arena = arena;
+        setVisible(true);
 
     }
 
@@ -61,15 +61,6 @@ public class GameForm extends JFrame {
     private void loadElements() {
         items = new DefaultListModel<>();
         list1.setModel(items);
-        ArrayList<Component> components = new ArrayList<>(20);
-        components.add(fightButton);
-        components.add(defendButton);
-        components.add(actButton);
-        components.add(spareButton);
-        components.add(itemButton);
-        components.add(mainPanel);
-        components.add(list1);
-
         creatures = new ArrayList<>();
         creatures.add(creatureA1);
         creatures.add(creatureA2);
@@ -78,29 +69,43 @@ public class GameForm extends JFrame {
         creatures.add(creatureB2);
         creatures.add(creatureB3);
 
-        for (Component component : components) {
-            TextUtil.fontify(component);
-        }
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         scrollPane.setViewportView(panel);
-
         for (Component component : panel.getComponents()) {
             TextUtil.fontify(component);
         }
     }
     private void loadGameObjects() {
+        updateCharacters();
+        applyFonts();
+    }
+
+    private void applyFonts() {
+        ArrayList<Component> components = new ArrayList<>(20);
+        components.add(fightButton);
+        components.add(defendButton);
+        components.add(actButton);
+        components.add(spareButton);
+        components.add(itemButton);
+        components.add(mainPanel);
+        components.add(list1);
+        components.addAll(creatures);
+        for (Component component : components) {
+            TextUtil.fontify(component);
+        }
+    }
+
+    public void updateCharacters() {
         List<Creature> creatureList = arena.getCreatures();
-        int i = 1;
+        int i = 0;
         for (JLabel label : creatures) {
-            Creature creature = creatureList.get(i-1);
-            TextUtil.fontify(label);
+            Creature creature = creatureList.get(i);
             label.setText(creature.status());
             label.setIcon(new ImageIcon(creature.getImageSource()));
             i++;
         }
     }
-
 
 
 }
