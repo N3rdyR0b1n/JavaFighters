@@ -18,7 +18,6 @@ public abstract class Creature {
     protected List<Ability> attacks;
     protected List<Ability> spares;
     protected List<Ability> defense;
-    protected String pose;
     boolean hasTurn =false;
     private ArrayList<List<Ability>> allActions;
     protected int extraDamage;
@@ -71,7 +70,7 @@ public abstract class Creature {
     }
 
     public String getImageSource() {
-        return FileUtil.CHARACTERS+fileName + pose;
+        return FileUtil.CHARACTERS+fileName;
     }
 
     public int damageMod(int initialDamage) {

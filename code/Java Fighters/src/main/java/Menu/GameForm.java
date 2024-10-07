@@ -3,7 +3,7 @@ package Menu;
 import GameStuff.Arena;
 import GameStuff.Creature;
 import Item.Item;
-import Item.Items;
+import Util.KeyUtil;
 import Util.MenuInfo;
 import Util.TextUtil;
 
@@ -31,6 +31,7 @@ public class GameForm extends JFrame {
     private JScrollPane scrollPane;
     private List<JLabel> creatures;
     private DefaultListModel<Item> items;
+    private int currentCharacter = 0;
 
     private Timer timer = new Timer(50, this::tick);
 
@@ -44,12 +45,15 @@ public class GameForm extends JFrame {
         setSize(MenuInfo.WIDTH, MenuInfo.HEIGHT);
         timer.start();
         this.arena = arena;
+
+
+
         setVisible(true);
 
     }
 
     private void tick(ActionEvent e) {
-
+        updateCharacters();
     }
 
 
@@ -75,10 +79,12 @@ public class GameForm extends JFrame {
         for (Component component : panel.getComponents()) {
             TextUtil.fontify(component);
         }
+        keyBindingInit();
     }
     private void loadGameObjects() {
         updateCharacters();
         applyFonts();
+        arena.getCreatures().get(0).onTurn(arena);
     }
 
     private void applyFonts() {
@@ -105,6 +111,31 @@ public class GameForm extends JFrame {
             label.setIcon(new ImageIcon(creature.getImageSource()));
             i++;
         }
+    }
+
+
+
+
+
+
+    public void keyBindingInit() {
+        JPanel contentPane = (JPanel) this.getContentPane();
+        int condition = JComponent.WHEN_IN_FOCUSED_WINDOW;
+        InputMap inputMap = contentPane.getInputMap(condition);
+        ActionMap actionMap = contentPane.getActionMap();
+        String next = "next";
+        inputMap.put(KeyStroke.getKeyStroke(KeyUtil.ENTER_KEY, 0), next);
+        actionMap.put(next, new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                arena.getCreatures().get(currentCharacter).endTurn(arena);
+                currentCharacter++;
+                if (currentCharacter >= creatures.size()) {
+                    currentCharacter=0;
+                }
+                arena.getCreatures().get(currentCharacter).onTurn(arena);
+            }
+        });
     }
 
 

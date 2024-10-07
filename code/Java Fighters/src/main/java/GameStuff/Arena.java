@@ -36,9 +36,7 @@ public class Arena {
     public void gameTick() {
         List<Creature> creatures = getCreatures();
         for (Creature creature : creatures) {
-            if (creature.alive()) {
-                creature.turnTick(this);
-            }
+            creature.turnTick(this);
         }
     }
 
