@@ -3,6 +3,7 @@ package Item;
 
 import GameStuff.Arena;
 import GameStuff.Creature;
+import Menu.GameForm;
 
 public class Item implements Cloneable{
     public String name;
