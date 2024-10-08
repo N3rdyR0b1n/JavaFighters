@@ -32,9 +32,11 @@ public class GameForm extends JFrame {
     private JButton itemButton;
     private JList list1;
     private JScrollPane scrollPane;
+    private JLabel roundLbl;
     private List<JLabel> creatures;
     private DefaultListModel<Ability> jlist = new DefaultListModel<Ability>();
     private int currentCharacter = 0;
+
 
     private Timer timer = new Timer(50, this::tick);
 
@@ -50,8 +52,6 @@ public class GameForm extends JFrame {
         timer.start();
         this.arena = arena;
         loadElements();
-
-
         setVisible(true);
 
     }
@@ -59,7 +59,6 @@ public class GameForm extends JFrame {
     private void tick(ActionEvent e) {
         updateCharacters();
     }
-
 
     public void load() {
         loadGameObjects();
@@ -86,6 +85,7 @@ public class GameForm extends JFrame {
         updateCharacters();
         applyFonts();
         arena.getCreatures().get(0).onTurn(arena);
+        roundLbl.setText("Round : " + arena.getRound());
     }
 
     private void applyFonts() {
@@ -101,6 +101,7 @@ public class GameForm extends JFrame {
         for (Component component : components) {
             TextUtil.fontify(component);
         }
+        TextUtil.fontify(roundLbl, 2.5f);
     }
 
     public void updateCharacters() {
@@ -113,11 +114,6 @@ public class GameForm extends JFrame {
             i++;
         }
     }
-
-
-
-
-
 
     public void keyBindingInit() {
         JPanel contentPane = (JPanel) this.getContentPane();
@@ -134,6 +130,8 @@ public class GameForm extends JFrame {
                 currentCharacter++;
                 if (currentCharacter >= creatures.size()) {
                     currentCharacter=0;
+                    arena.nextRound();
+                    roundLbl.setText("Round : " + arena.getRound());
                 }
                 arena.getCreatures().get(currentCharacter).onTurn(arena);
             }

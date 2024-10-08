@@ -13,6 +13,7 @@ import java.util.Random;
 public class Arena {
     Random random;
     Container textOutput;
+    private int round = 1;
     private final Player player1;
     private final Player player2;
     public Arena(Player player1, Player player2){
@@ -51,5 +52,11 @@ public class Arena {
         return left ? player1.getInventory() : player2.getInventory();
     }
 
+    public int getRound() {
+        return round;
+    }
+    public void nextRound() {
+        round++;
+    }
 
 }
