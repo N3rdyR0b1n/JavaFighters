@@ -31,7 +31,8 @@ public class Arena {
     }
 
     public void start() {
-
+        writeOutput("Game start!");
+        writeOutput("Round 1:");
     }
 
     public void gameTick() {
@@ -39,6 +40,7 @@ public class Arena {
         for (Creature creature : creatures) {
             creature.turnTick(this);
         }
+        writeOutput("Round " + round + ":");
     }
 
 
@@ -47,6 +49,9 @@ public class Arena {
         Component component = new JLabel(string);
         TextUtil.fontify(component);
         textOutput.add(component);
+    }
+    public void setTextOutput(Container output) {
+        textOutput = output;
     }
     public List<Item> getRelevantItems(boolean left) {
         return left ? player1.getInventory() : player2.getInventory();
@@ -57,6 +62,7 @@ public class Arena {
     }
     public void nextRound() {
         round++;
+        gameTick();
     }
 
 }

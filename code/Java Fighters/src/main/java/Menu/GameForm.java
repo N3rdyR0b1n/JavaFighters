@@ -77,6 +77,7 @@ public class GameForm extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         scrollPane.setViewportView(panel);
+        arena.setTextOutput(panel);
         for (Component component : panel.getComponents()) {
             TextUtil.fontify(component);
         }
@@ -86,6 +87,7 @@ public class GameForm extends JFrame {
         applyFonts();
         arena.getCreatures().get(0).onTurn(arena);
         roundLbl.setText("Round : " + arena.getRound());
+        arena.start();
     }
 
     private void applyFonts() {

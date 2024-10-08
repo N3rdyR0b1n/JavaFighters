@@ -1,6 +1,8 @@
 package Creatures;
 
+import Abilities.custom.QuickDrawAttackAbility;
 import Abilities.custom.ShootAttackAbility;
+import Abilities.custom.TriggerFinger;
 import GameStuff.Arena;
 import GameStuff.Creature;
 
@@ -12,6 +14,8 @@ public class GunGuy extends Creature {
     public GunGuy(String name) {
         super(name, 35, "gun/");
         attacks.add(new ShootAttackAbility());
+        attacks.add(new QuickDrawAttackAbility());
+        attacks.add(new TriggerFinger());
 
     }
 

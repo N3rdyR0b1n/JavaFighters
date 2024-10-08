@@ -105,6 +105,10 @@ public abstract class Creature {
         }
     }
 
+    public void addExtraDamage(int extraDamage) {
+        this.extraDamage += extraDamage;
+    }
+
     @Override
     public String toString() {
         return name;
