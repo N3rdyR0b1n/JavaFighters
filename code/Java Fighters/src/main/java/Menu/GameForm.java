@@ -57,6 +57,7 @@ public class GameForm extends JFrame {
     }
 
     private void tick(ActionEvent e) {
+
         updateCharacters();
     }
 
@@ -107,7 +108,9 @@ public class GameForm extends JFrame {
     }
 
     public void updateCharacters() {
+        arena.renderTick();
         List<Creature> creatureList = arena.getCreatures();
+
         int i = 0;
         for (JLabel label : creatures) {
             Creature creature = creatureList.get(i);

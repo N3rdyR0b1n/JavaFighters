@@ -5,9 +5,10 @@ import GameStuff.Arena;
 import GameStuff.Creature;
 
 public class BrawlerGuy extends Creature {
-    private  String STAND = "brawler.png";
+    private  String STAND = "brawler_";
     private static String SELECTED = "brawler_turn.png";
-    private String pose = STAND;
+    private String pose = STAND + "1.png";
+    private int sprite = 0;
 
     public BrawlerGuy(String name) {
         super(name, 65, "fist/");
@@ -15,7 +16,7 @@ public class BrawlerGuy extends Creature {
 
     @Override
     public String getImageSource() {
-        return super.getImageSource() + pose;
+        return super.getImageSource() + pose ;
     }
 
     @Override
@@ -25,9 +26,23 @@ public class BrawlerGuy extends Creature {
     }
     public void endTurn(Arena arena) {
         super.endTurn(arena);
-        pose = STAND;
+        pose = STAND + sprite + ".png";
     }
 
+    @Override
+    public void spriteUpdate(Arena arena) {
+        super.spriteUpdate(arena);
+        if (this.hasTurn) {
 
-
+        }
+        else {
+            if (age % 5 == 0) {
+                sprite++;
+                if (sprite > 5) {
+                    sprite = 1;
+                }
+                pose = STAND + sprite + ".png";
+            }
+        }
+    }
 }

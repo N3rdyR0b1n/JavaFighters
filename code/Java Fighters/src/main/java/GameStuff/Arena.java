@@ -65,4 +65,10 @@ public class Arena {
         gameTick();
     }
 
+    public void renderTick() {
+        List<Creature> creatures = getCreatures();
+        for (Creature creature : creatures) {
+            creature.spriteUpdate(this);
+        }
+    }
 }

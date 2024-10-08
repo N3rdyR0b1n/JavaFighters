@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0527c8a4-1ad2-4f7a-879d-bf32e3fb574d" name="Changes" comment="Counting the round the game is at">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/TriggerFinger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/TriggerFinger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Creatures/GunGuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creatures/GunGuy.java" afterDir="false" />
+    <list default="true" id="0527c8a4-1ad2-4f7a-879d-bf32e3fb574d" name="Changes" comment="Added action logging to the GameForm.java class and gave GunGuy 3 attacks">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Menu/CreditsForm.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Menu/CreditsForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/fist/brawler_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/fist/brawler_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/fist/brawler_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/fist/brawler_5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Creatures/BrawlerGuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creatures/BrawlerGuy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Arena.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Util/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/FileUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/fist/brawler.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/fist/brawler_3.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,25 +45,30 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JavaClassFindUsagesOptions.isDerivedClasses&quot;: &quot;true&quot;,
-    &quot;JavaClassFindUsagesOptions.isSearchForTextOccurrences&quot;: &quot;false&quot;,
-    &quot;JavaClassFindUsagesOptions.isUsages&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/NielsvandenHeuvel/OneDrive - Fam. van den Heuvel/TUE/Java_Fighters_PC/JavaFighters/code/Java Fighters/src/main/resources/assets/textures/characters/sword&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaClassFindUsagesOptions.isDerivedClasses": "true",
+    "JavaClassFindUsagesOptions.isSearchForTextOccurrences": "false",
+    "JavaClassFindUsagesOptions.isUsages": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/NielsvandenHeuvel/GitHub/JavaFighters/code/Java Fighters/src/main/resources/assets/textures/characters/fist",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\fist" />
+      <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters" />
       <recent name="C:\Users\NielsvandenHeuvel\OneDrive - Fam. van den Heuvel\TUE\Java_Fighters_PC\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\sword" />
       <recent name="C:\Users\NielsvandenHeuvel\OneDrive - Fam. van den Heuvel\TUE\Java_Fighters_PC\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\gun" />
       <recent name="C:\Users\NielsvandenHeuvel\OneDrive - Fam. van den Heuvel\TUE\Java_Fighters_PC\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\fist" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\fist" />
     </key>
   </component>
   <component name="RunManager">
@@ -125,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728388399966</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added action logging to the GameForm.java class and gave GunGuy 3 attacks">
+      <option name="closed" value="true" />
+      <created>1728389190818</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1728389190818</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -137,6 +159,7 @@
     <MESSAGE value="Prevented going back in the characterlist after you move to the other side" />
     <MESSAGE value="Made java list have different elements depending on actiontype selected by button press." />
     <MESSAGE value="Counting the round the game is at" />
-    <option name="LAST_COMMIT_MESSAGE" value="Counting the round the game is at" />
+    <MESSAGE value="Added action logging to the GameForm.java class and gave GunGuy 3 attacks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added action logging to the GameForm.java class and gave GunGuy 3 attacks" />
   </component>
 </project>
