@@ -58,7 +58,8 @@ public class MainMenuForm extends JFrame{
         });
         settingsButton.addActionListener(e -> {
             buttonPressed();
-
+            TestingFeaturesForm form = new TestingFeaturesForm();
+            form.Load();
         });
         leaveButton.addActionListener(e -> {
             buttonPressed();
