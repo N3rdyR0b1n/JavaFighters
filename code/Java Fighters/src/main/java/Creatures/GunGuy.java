@@ -1,13 +1,11 @@
 package Creatures;
 
-import Abilities.custom.QuickDrawAttackAbility;
-import Abilities.custom.ShootAttackAbility;
-import Abilities.custom.TriggerFinger;
+import Abilities.custom.Cowboy.QuickDrawAttackAbility;
+import Abilities.custom.Cowboy.ShootAttackAbility;
+import Abilities.custom.Cowboy.TriggerFinger;
 import GameStuff.Arena;
 import GameStuff.Creature;
 import Util.FileUtil;
-
-import java.io.File;
 
 public class GunGuy extends Creature {
     private static String STAND = "cowboy_";

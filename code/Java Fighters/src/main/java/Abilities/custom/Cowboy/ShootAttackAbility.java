@@ -1,10 +1,10 @@
-package Abilities.custom;
+package Abilities.custom.Cowboy;
 
 import Abilities.AttackAbility;
 
 public class ShootAttackAbility extends AttackAbility {
     public ShootAttackAbility() {
-        super("High Noon", 2, 2, 25, 35, 50, 1);
+        super("High Noon", 3, 6, 40, 40, 100, 1);
     }
 
 }

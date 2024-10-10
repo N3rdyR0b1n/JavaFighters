@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0527c8a4-1ad2-4f7a-879d-bf32e3fb574d" name="Changes" comment="Added Classes to handle SoundEvents.">
+    <list default="true" id="0527c8a4-1ad2-4f7a-879d-bf32e3fb574d" name="Changes" comment="Ignorable Commit : Made code to allow a scrollable list.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/AdrenalineAbility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/FalconPunchAttack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/KickAttack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/PunchAttack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/MainMenuForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/MainMenuForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/TestingFeaturesForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/TestingFeaturesForm.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/TestingFeaturesForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/TestingFeaturesForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/QuickDrawAttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/QuickDrawAttackAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/ShootAttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/ShootAttackAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/TriggerFinger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/TriggerFinger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Creatures/GunGuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creatures/GunGuy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Util/AbilityUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/AbilityUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728552652462</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Ignorable Commit : Made code to allow a scrollable list.">
+      <option name="closed" value="true" />
+      <created>1728554125138</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1728554125138</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -169,6 +184,7 @@
     <MESSAGE value="Added action logging to the GameForm.java class and gave GunGuy 3 attacks" />
     <MESSAGE value="Added animated Sprites, animated sprites for BrawlerGuy.java" />
     <MESSAGE value="Added Classes to handle SoundEvents." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Classes to handle SoundEvents." />
+    <MESSAGE value="Ignorable Commit : Made code to allow a scrollable list." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ignorable Commit : Made code to allow a scrollable list." />
   </component>
 </project>

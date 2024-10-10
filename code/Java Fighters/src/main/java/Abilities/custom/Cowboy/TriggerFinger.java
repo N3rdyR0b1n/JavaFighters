@@ -1,4 +1,4 @@
-package Abilities.custom;
+package Abilities.custom.Cowboy;
 
 import Abilities.AttackAbility;
 import GameStuff.Ability;

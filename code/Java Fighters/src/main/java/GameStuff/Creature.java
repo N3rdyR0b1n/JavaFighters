@@ -117,4 +117,11 @@ public abstract class Creature {
     public void spriteUpdate(Arena arena) {
         age++;
     }
+
+    public void heal(int ammount) {
+        hp += ammount;
+        if (hp > maxhp) {
+            hp = maxhp;
+        }
+    }
 }
