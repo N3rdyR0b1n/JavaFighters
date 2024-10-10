@@ -3,6 +3,7 @@ package Menu;
 import GameStuff.Ability;
 import GameStuff.Arena;
 import GameStuff.Creature;
+import GameStuff.Player;
 import Item.Item;
 import Util.KeyUtil;
 import Util.MenuInfo;
@@ -14,7 +15,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class GameForm extends JFrame {
 
@@ -30,11 +30,13 @@ public class GameForm extends JFrame {
     private JButton actButton;
     private JButton spareButton;
     private JButton itemButton;
-    private JList list1;
+    private JList<Ability> abilities;
     private JScrollPane scrollPane;
     private JLabel roundLbl;
+    private JList<Creature> targets;
     private List<JLabel> creatures;
-    private DefaultListModel<Ability> jlist = new DefaultListModel<Ability>();
+    private DefaultListModel<Ability> jlistAbilities = new DefaultListModel<Ability>();
+    private DefaultListModel<Creature> jlistTargets = new DefaultListModel<Creature>();
     private int currentCharacter = 0;
 
 
@@ -44,7 +46,8 @@ public class GameForm extends JFrame {
 
     public GameForm(Arena arena) {
         super();
-        list1.setModel(jlist);
+        abilities.setModel(jlistAbilities);
+        targets.setModel(jlistTargets);
         setContentPane(mainPanel);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         pack();
@@ -82,6 +85,7 @@ public class GameForm extends JFrame {
             TextUtil.fontify(component);
         }
     }
+
     private void loadGameObjects() {
         updateCharacters();
         applyFonts();
@@ -98,7 +102,7 @@ public class GameForm extends JFrame {
         components.add(spareButton);
         components.add(itemButton);
         components.add(mainPanel);
-        components.add(list1);
+        components.add(abilities);
         components.addAll(creatures);
         for (Component component : components) {
             TextUtil.fontify(component);
@@ -122,20 +126,31 @@ public class GameForm extends JFrame {
         int condition = JComponent.WHEN_IN_FOCUSED_WINDOW;
         InputMap inputMap = contentPane.getInputMap(condition);
         ActionMap actionMap = contentPane.getActionMap();
+
         String next = "next";
         String back = "back";
+
         inputMap.put(KeyStroke.getKeyStroke(KeyUtil.ENTER_KEY, 0), next);
         actionMap.put(next, new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                arena.getCreatures().get(currentCharacter).endTurn(arena);
-                currentCharacter++;
-                if (currentCharacter >= creatures.size()) {
-                    currentCharacter=0;
-                    arena.nextRound();
-                    roundLbl.setText("Round : " + arena.getRound());
+                Creature currentCreature = arena.getCreatures().get(currentCharacter);
+
+                if(!currentCreature.isReady()) {
+                    if (currentCreature.getSelectedAbility() == null) {
+                        if(selectAbility(currentCreature)) {
+                            if(currentCreature.getSelectedAbility().getTargets() > 0) {
+                                loadTargets(currentCreature);
+                            } else {
+                                currentCreature.selectTarget(currentCreature);
+                            }
+                        }
+                    } else {
+                        selectTarget(currentCreature);
+                    }
+                } else {
+                    proceedWithTurns(currentCreature);
                 }
-                arena.getCreatures().get(currentCharacter).onTurn(arena);
             }
         });
 
@@ -189,22 +204,83 @@ public class GameForm extends JFrame {
 
     private void loadButtonOption(int optionType) {
         List<Ability> choices = arena.getCreatures().get(currentCharacter).getByType(optionType);
-        jlist.clear();
+        jlistAbilities.clear();
         if (choices != null) {
-            addAll(choices);
+            this.addAllAbilities(choices);
         }
     }
+
     private void loadInventory() {
         List<Item> choices = arena.getRelevantItems(currentCharacter < 3);
         ArrayList<Ability> items = new ArrayList<Ability>(choices);
-        jlist.clear();
+        jlistAbilities.clear();
         if (choices != null) {
-            addAll(choices);
+            this.addAllAbilities(choices);
         }
     }
-    private <T extends Ability> void addAll(List<T> list) {
+
+    private void loadTargets(Creature currentCreature) {
+        Player opponent;
+        if (currentCharacter < 3) {
+            opponent = arena.getPlayer(2);
+        } else {
+            opponent = arena.getPlayer(1);
+        }
+
+        addAllTargets(opponent.getTeam());
+    }
+
+    private boolean selectAbility(Creature currentCreature) {
+        if(abilities.isSelectionEmpty()){
+            return false;
+        }
+        Ability selectedAbility = abilities.getSelectedValue();
+
+        currentCreature.setSelectedAbility(selectedAbility);
+        return true;
+    }
+
+    private boolean selectTarget(Creature currentCreature) {
+        Ability ability = currentCreature.getSelectedAbility();
+        if (ability.getTargets() > 0 && targets.isSelectionEmpty()) {
+            return false;
+        }
+
+        for (Creature target : targets.getSelectedValuesList()) {
+            currentCreature.selectTarget(target);
+        }
+        jlistTargets.clear();
+        return true;
+    }
+
+    private void proceedWithTurns(Creature currentCreature) {
+        currentCreature.endTurn(arena);
+
+        currentCharacter++;
+        if (currentCharacter >= creatures.size()) {
+            currentCharacter=0;
+            arena.nextRound();
+
+            for (Creature creature : arena.getCreatures()) {
+                Ability ability = creature.getSelectedAbility();
+                ability.perform(arena, creature, creature.getSelectedTargets());
+            }
+
+            roundLbl.setText("Round : " + arena.getRound());
+        }
+
+        arena.getCreatures().get(currentCharacter).onTurn(arena);
+    }
+
+    private <T extends Creature> void addAllTargets(List<T> list) {
+        for (Creature target : list) {
+            jlistTargets.addElement(target);
+        }
+    }
+
+    private <T extends Ability> void addAllAbilities(List<T> list) {
         for (Ability ability : list) {
-            jlist.addElement(ability);
+            jlistAbilities.addElement(ability);
         }
     }
 

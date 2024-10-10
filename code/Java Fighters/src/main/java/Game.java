@@ -13,18 +13,13 @@ public class Game {
     }
 
     public Game() {
-
         Items.init();
-
-
     }
 
     public void run() {
         MenuInfo.init();
         System.out.println(":3");
         MainMenuForm form = new MainMenuForm();
-
-
     }
 
 

@@ -6,6 +6,8 @@ import GameStuff.Arena;
 import GameStuff.Creature;
 import Menu.GameForm;
 
+import java.util.List;
+
 public class Item extends Ability implements Cloneable{
     private int id = -1;
     private String consumptionMessage;
@@ -17,6 +19,12 @@ public class Item extends Ability implements Cloneable{
         this.consumptionMessage = consumptionmessage;
         this.maxHealing = maxHealing;
         this.minHealing = minHealing;
+    }
+
+    @Override
+    public void perform(Arena world, Creature user, List<Creature> targets) {
+        //heal here
+        consume(user, world);
     }
 
     public void consume(Creature consumer, Arena arena) {
