@@ -21,6 +21,7 @@ public class Arena {
         this.random = new Random();
         this.player1 = player1;
         this.player2 = player2;
+
     }
 
     public List<Creature> getCreatures() {
@@ -68,5 +69,11 @@ public class Arena {
         if (num == 2) return player2;
 
         return null;
+    }
+    public void renderTick() {
+        List<Creature> creatures = getCreatures();
+        for (Creature creature : creatures) {
+            creature.spriteUpdate(this);
+        }
     }
 }

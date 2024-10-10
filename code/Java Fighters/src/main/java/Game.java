@@ -1,6 +1,7 @@
 import Item.Items;
 import Menu.MainMenuForm;
 import Util.MenuInfo;
+import Util.SoundUtil;
 
 import java.util.logging.Logger;
 
@@ -13,13 +14,18 @@ public class Game {
     }
 
     public Game() {
+
         Items.init();
+        SoundUtil.init();
+
     }
 
     public void run() {
         MenuInfo.init();
         System.out.println(":3");
         MainMenuForm form = new MainMenuForm();
+
+
     }
 
 

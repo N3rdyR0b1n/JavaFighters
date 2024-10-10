@@ -18,9 +18,10 @@ public abstract class Creature {
     protected List<Ability> attacks;
     protected List<Ability> spares;
     protected List<Ability> defense;
-    boolean hasTurn = false;
+    protected boolean hasTurn =false;
     private ArrayList<List<Ability>> allActions;
     protected int extraDamage;
+    protected int age;
 
     protected Ability selectedAbility;
     protected boolean targetsSelected;
@@ -156,5 +157,8 @@ public abstract class Creature {
     @Override
     public String toString() {
         return name;
+    }
+    public void spriteUpdate(Arena arena) {
+        age++;
     }
 }
