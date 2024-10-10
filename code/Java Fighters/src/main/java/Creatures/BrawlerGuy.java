@@ -1,6 +1,5 @@
 package Creatures;
 
-
 import GameStuff.Arena;
 import GameStuff.Creature;
 
@@ -24,6 +23,7 @@ public class BrawlerGuy extends Creature {
         super.onTurn(arena);
         pose = SELECTED;
     }
+
     public void endTurn(Arena arena) {
         super.endTurn(arena);
         pose = STAND + sprite + ".png";

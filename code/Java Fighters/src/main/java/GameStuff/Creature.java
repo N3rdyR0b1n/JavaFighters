@@ -23,6 +23,10 @@ public abstract class Creature {
     protected int extraDamage;
     protected int age;
 
+    protected Ability selectedAbility;
+    protected boolean targetsSelected;
+    protected List<Creature> selectedTargets;
+
     public Creature(String name, int hp, String fileName) {
         this.name = name;
         this.hp = hp;
@@ -38,10 +42,15 @@ public abstract class Creature {
 
         defense = new ArrayList<>();
         defense.add(new DefendAbility());
+
         allActions.add(actions);
         allActions.add(attacks);
         allActions.add(spares);
         allActions.add(defense);
+
+        selectedAbility = null;
+        targetsSelected = false;
+        selectedTargets = new ArrayList<>();
     }
 
     public void attack(Arena arena, int damage, int chance) {
@@ -54,18 +63,20 @@ public abstract class Creature {
         if (!this.alive()) {
             arena.writeOutput(this.name + " died");
         }
-
-
     }
+
     public void damage(int damage) {
         this.hp-=damage;
     }
+
     public boolean alive() {
         return hp>0;
     }
+
     public void rename(String nick) {
         this.name = nick;
     }
+
     public String status() {
         return name + " : " + hp + "/" + maxhp;
     }
@@ -85,12 +96,15 @@ public abstract class Creature {
             }
         }
     }
+
     public void onTurn(Arena arena) {
         hasTurn = true;
     }
+
     public void endTurn(Arena arena) {
         hasTurn = false;
     }
+
     public List<Ability> getByType(int type) {
         switch (type) {
             case 0:
@@ -104,6 +118,36 @@ public abstract class Creature {
             default:
                 return null;
         }
+    }
+
+    public void setSelectedAbility(Ability ability) {
+        selectedAbility = ability;
+    }
+
+    public void clearSelectedAbility() {
+        selectedAbility = null;
+    }
+
+    public Ability getSelectedAbility() {
+        return selectedAbility;
+    }
+
+    public void selectTarget(Creature creature) {
+        selectedTargets.add(creature);
+        targetsSelected = true;
+    }
+
+    public void clearTargets() {
+        selectedTargets.clear();
+        targetsSelected = false;
+    }
+
+    public boolean isReady() {
+        return (selectedAbility != null) && targetsSelected;
+    }
+
+    public List<Creature> getSelectedTargets() {
+        return new ArrayList<>(selectedTargets);
     }
 
     public void addExtraDamage(int extraDamage) {

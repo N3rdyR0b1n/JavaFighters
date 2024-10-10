@@ -16,6 +16,7 @@ public class Arena {
     private int round = 1;
     private final Player player1;
     private final Player player2;
+
     public Arena(Player player1, Player player2){
         this.random = new Random();
         this.player1 = player1;
@@ -43,8 +44,6 @@ public class Arena {
         writeOutput("Round " + round + ":");
     }
 
-
-
     public void writeOutput(String string) {
         Component component = new JLabel(string);
         TextUtil.fontify(component);
@@ -65,6 +64,12 @@ public class Arena {
         gameTick();
     }
 
+    public Player getPlayer(int num) {
+        if (num == 1) return player1;
+        if (num == 2) return player2;
+
+        return null;
+    }
     public void renderTick() {
         List<Creature> creatures = getCreatures();
         for (Creature creature : creatures) {
