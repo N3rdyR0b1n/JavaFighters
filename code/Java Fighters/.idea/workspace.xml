@@ -5,23 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0527c8a4-1ad2-4f7a-879d-bf32e3fb574d" name="Changes" comment="Added animated Sprites, animated sprites for BrawlerGuy.java">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/gun/cowboy_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/gun/cowboy_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/gun/cowboy_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/gun/cowboy_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/gun/cowboy_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/gun/cowboy_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/gun/cowboy_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/gun/cowboy_8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/gun/cowboy_9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/sword/sword_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/sword/sword_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/sword/sword_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/sword/sword_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/characters/sword/sword_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Audio/SoundEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Util/SoundUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/audio/button_click.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Creatures/GunGuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creatures/GunGuy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Creatures/SwordGuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creatures/SwordGuy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/MainMenuForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/MainMenuForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Util/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/FileUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +48,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/NielsvandenHeuvel/GitHub/JavaFighters/code/Java Fighters/src/main/resources/assets/textures/characters/sword",
+    "last_opened_file_path": "C:/Users/NielsvandenHeuvel/GitHub/JavaFighters/code/Java Fighters/src/main/resources/assets/audio",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -66,11 +56,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\audio" />
       <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\sword" />
       <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\gun" />
       <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\fist" />
       <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters" />
-      <recent name="C:\Users\NielsvandenHeuvel\OneDrive - Fam. van den Heuvel\TUE\Java_Fighters_PC\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\sword" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\fist" />

@@ -46,7 +46,7 @@ public class GunGuy extends Creature {
 
         }
         else {
-            if (age % 5 == 0) {
+            if (age % 3 == 0) {
                 if (spriteloop <= 0) {
                     if (spriteloop == 0) {
                         spriteloop--;

@@ -10,12 +10,17 @@ import GameStuff.Creature;
 import GameStuff.Player;
 import Item.Item;
 import Item.Items;
+import Util.FileUtil;
 import Util.MenuInfo;
+import Util.SoundUtil;
 import Util.TextUtil;
 
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -47,24 +52,23 @@ public class MainMenuForm extends JFrame{
         TextUtil.fontify(leaveButton, 3f);
         TextUtil.fontify(creditsButton, 3f);
 
-        playButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                playButtonPressed(e);
-            }
+        playButton.addActionListener(e -> {
+            buttonPressed();
+            playButtonPressed(e);
         });
-        settingsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        settingsButton.addActionListener(e -> {
+            buttonPressed();
 
-            }
         });
-        leaveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                leaveButtonPressed(e);
-            }
+        leaveButton.addActionListener(e -> {
+            buttonPressed();
+            leaveButtonPressed(e);
         });
+        creditsButton.addActionListener(e -> {
+            buttonPressed();
+
+        });
+
     }
 
     private void leaveButtonPressed(ActionEvent e) {
@@ -105,6 +109,8 @@ public class MainMenuForm extends JFrame{
 
     }
 
-
+    private void buttonPressed() {
+        SoundUtil.BUTTON_CLICK.play();
+    }
 
 }
