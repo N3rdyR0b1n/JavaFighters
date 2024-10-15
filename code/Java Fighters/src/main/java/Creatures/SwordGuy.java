@@ -1,6 +1,7 @@
 package Creatures;
 
 
+import Abilities.custom.Sword.StabAttack;
 import GameStuff.Arena;
 import GameStuff.Creature;
 import Util.FileUtil;
@@ -16,6 +17,7 @@ public class SwordGuy extends Creature {
 
     public SwordGuy(String name) {
         super(name, 45, "sword/");
+        attacks.add(new StabAttack());
     }
 
     @Override

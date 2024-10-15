@@ -1,9 +1,6 @@
 package Menu;
 
-import GameStuff.Ability;
-import GameStuff.Arena;
-import GameStuff.Creature;
-import GameStuff.Player;
+import GameStuff.*;
 import Item.Item;
 import Util.KeyUtil;
 import Util.MenuInfo;
@@ -15,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 public class GameForm extends JFrame {
 
@@ -31,15 +29,18 @@ public class GameForm extends JFrame {
     private JButton spareButton;
     private JButton itemButton;
     private JList<Ability> abilities;
-    private JScrollPane scrollPane;
+    private volatile JScrollPane scrollPane;
     private JLabel roundLbl;
     private JList<Creature> targets;
+    private JList actionlog;
     private List<JLabel> creatures;
     private DefaultListModel<Ability> jlistAbilities = new DefaultListModel<Ability>();
     private DefaultListModel<Creature> jlistTargets = new DefaultListModel<Creature>();
+    private DefaultListModel<String> text = new DefaultListModel<>();
     private int currentCharacter = 0;
 
     private Timer timer = new Timer(50, this::tick);
+    private int counter=0;
 
     private Arena arena;
 
@@ -75,13 +76,10 @@ public class GameForm extends JFrame {
         creatures.add(creatureB2);
         creatures.add(creatureB3);
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        scrollPane.setViewportView(panel);
-        arena.setTextOutput(panel);
-        for (Component component : panel.getComponents()) {
-            TextUtil.fontify(component);
-        }
+
+        arena.setTextOutput(text);
+        actionlog.setModel(text);
+
     }
 
     private void loadGameObjects() {
@@ -111,7 +109,6 @@ public class GameForm extends JFrame {
     public void updateCharacters() {
         arena.renderTick();
         List<Creature> creatureList = arena.getCreatures();
-
         int i = 0;
         for (JLabel label : creatures) {
             Creature creature = creatureList.get(i);
@@ -126,10 +123,8 @@ public class GameForm extends JFrame {
         int condition = JComponent.WHEN_IN_FOCUSED_WINDOW;
         InputMap inputMap = contentPane.getInputMap(condition);
         ActionMap actionMap = contentPane.getActionMap();
-
         String next = "next";
         String back = "back";
-
         inputMap.put(KeyStroke.getKeyStroke(KeyUtil.ENTER_KEY, 0), next);
         actionMap.put(next, new AbstractAction() {
             @Override
@@ -149,7 +144,9 @@ public class GameForm extends JFrame {
                         selectTarget(currentCreature);
                     }
                 } else {
-                    proceedWithTurns(currentCreature);
+
+                    CompletableFuture.runAsync(() -> proceedWithTurns(currentCreature));
+
                 }
             }
         });
@@ -259,17 +256,10 @@ public class GameForm extends JFrame {
         currentCharacter++;
         if (currentCharacter >= creatures.size()) {
             currentCharacter=0;
-            arena.nextRound();
-
-            for (Creature creature : arena.getCreatures()) {
-                Ability ability = creature.getSelectedAbility();
-                ability.perform(arena, creature, creature.getSelectedTargets());
-            }
-
-            roundLbl.setText("Round : " + arena.getRound());
+            new TurnThread(arena, roundLbl).run();
         }
-
         arena.getCreatures().get(currentCharacter).onTurn(arena);
+
     }
 
     private <T extends Creature> void addAllTargets(List<T> list) {

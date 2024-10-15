@@ -1,5 +1,9 @@
 package Creatures;
 
+import Abilities.custom.Brawler.AdrenalineAbility;
+import Abilities.custom.Brawler.FalconPunchAttack;
+import Abilities.custom.Brawler.KickAttack;
+import Abilities.custom.Brawler.PunchAttack;
 import GameStuff.Arena;
 import GameStuff.Creature;
 
@@ -11,6 +15,10 @@ public class BrawlerGuy extends Creature {
 
     public BrawlerGuy(String name) {
         super(name, 65, "fist/");
+        actions.add(new AdrenalineAbility());
+        attacks.add(new FalconPunchAttack());
+        attacks.add(new PunchAttack());
+        attacks.add(new KickAttack());
     }
 
     @Override

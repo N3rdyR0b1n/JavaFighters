@@ -10,7 +10,7 @@ public class AbilityUtil {
     private static final Random random = new Random();
 
     public static int getRandom(int min, int max) {
-        return min + random.nextInt(min-max+1);
+        return min + random.nextInt(max-min+1);
     }
 
 

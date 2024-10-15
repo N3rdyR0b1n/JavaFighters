@@ -7,15 +7,18 @@ import Util.TextUtil;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.CompletableFuture;
 
 public class Arena {
     Random random;
-    Container textOutput;
+    DefaultListModel<String> textOutput;
     private int round = 1;
     private final Player player1;
     private final Player player2;
+
 
     public Arena(Player player1, Player player2){
         this.random = new Random();
@@ -45,11 +48,11 @@ public class Arena {
     }
 
     public void writeOutput(String string) {
-        Component component = new JLabel(string);
-        TextUtil.fontify(component);
-        textOutput.add(component);
+        textOutput.addElement(string);
     }
-    public void setTextOutput(Container output) {
+
+
+    public void setTextOutput(DefaultListModel output) {
         textOutput = output;
     }
     public List<Item> getRelevantItems(boolean left) {

@@ -168,11 +168,16 @@
           </hspacer>
           <scrollpane id="5fbc8" binding="scrollPane">
             <constraints>
-              <grid row="2" column="2" row-span="5" col-span="4" vsize-policy="5" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="2" row-span="5" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
-            <children/>
+            <children>
+              <component id="458e" class="javax.swing.JList" binding="actionlog">
+                <constraints/>
+                <properties/>
+              </component>
+            </children>
           </scrollpane>
           <component id="e5073" class="javax.swing.JLabel" binding="roundLbl">
             <constraints>
@@ -300,7 +305,7 @@
           </vspacer>
           <scrollpane id="2d8ea">
             <constraints>
-              <grid row="0" column="1" row-span="2" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="2" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -313,7 +318,7 @@
           </scrollpane>
           <scrollpane id="64a55">
             <constraints>
-              <grid row="0" column="3" row-span="2" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="3" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>

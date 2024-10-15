@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0527c8a4-1ad2-4f7a-879d-bf32e3fb574d" name="Changes" comment="Ignorable Commit : Made code to allow a scrollable list.">
+    <list default="true" id="12c9bbc0-35da-40da-80af-acda19b4c4e0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Sword/StabAttack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GameStuff/TurnThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/AttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/AttackAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/AdrenalineAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/AdrenalineAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/TriggerFinger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/TriggerFinger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Creatures/BrawlerGuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creatures/BrawlerGuy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Creatures/SwordGuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creatures/SwordGuy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Ability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Ability.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Arena.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Menu/GameForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/GameForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/TestingFeaturesForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/TestingFeaturesForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Util/AbilityUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/AbilityUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,11 +34,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 1
-}</component>
-  <component name="ProjectId" id="2mvC2cz1RDUBrlzUU0RLcxme4E1" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2nTSYg52bITM5G7fpSzielMZBGu" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,36 +46,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Java Fighter.executor": "Run",
-    "JavaClassFindUsagesOptions.isDerivedClasses": "true",
-    "JavaClassFindUsagesOptions.isSearchForTextOccurrences": "false",
-    "JavaClassFindUsagesOptions.isUsages": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/NielsvandenHeuvel/GitHub/JavaFighters/code/Java Fighters/src/main/resources/assets/audio",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "RunOnceActivity.ShowReadmeOnStart": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\audio" />
-      <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\sword" />
-      <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\gun" />
-      <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\fist" />
-      <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\fist" />
-    </key>
-  </component>
   <component name="RunManager">
-    <configuration name="Java Fighter" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="17" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="Java_Fighters" />
       <method v="2">
@@ -79,108 +62,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0527c8a4-1ad2-4f7a-879d-bf32e3fb574d" name="Changes" comment="" />
-      <created>1727947458698</created>
+      <changelist id="12c9bbc0-35da-40da-80af-acda19b4c4e0" name="Changes" comment="" />
+      <created>1728995623761</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1727947458698</updated>
+      <updated>1728995623761</updated>
     </task>
-    <task id="LOCAL-00001" summary="renamed main.java.item to item in menu (it was annoying me)">
-      <option name="closed" value="true" />
-      <created>1727954969953</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1727954969953</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Added onTurn method as well as extra sprites to display which character is currently being controlled">
-      <option name="closed" value="true" />
-      <created>1728330574540</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1728330574540</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Added Keybinding (enter key but is configurable in KeyUtil) and added key to switch between the active character.">
-      <option name="closed" value="true" />
-      <created>1728333097229</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1728333097229</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Prevented going back in the characterlist after you move to the other side">
-      <option name="closed" value="true" />
-      <created>1728333533168</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1728333533168</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Made java list have different elements depending on actiontype selected by button press.">
-      <option name="closed" value="true" />
-      <created>1728337359459</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1728337359459</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Counting the round the game is at">
-      <option name="closed" value="true" />
-      <created>1728388399966</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1728388399966</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Added action logging to the GameForm.java class and gave GunGuy 3 attacks">
-      <option name="closed" value="true" />
-      <created>1728389190818</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1728389190818</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Added animated Sprites, animated sprites for BrawlerGuy.java">
-      <option name="closed" value="true" />
-      <created>1728400003060</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1728400003060</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added Classes to handle SoundEvents.">
-      <option name="closed" value="true" />
-      <created>1728552652462</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1728552652462</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Ignorable Commit : Made code to allow a scrollable list.">
-      <option name="closed" value="true" />
-      <created>1728554125138</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1728554125138</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
     <servers />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="renamed main.java.item to item in menu (it was annoying me)" />
-    <MESSAGE value="Added onTurn method as well as extra sprites to display which character is currently being controlled" />
-    <MESSAGE value="Added Keybinding (enter key but is configurable in KeyUtil) and added key to switch between the active character." />
-    <MESSAGE value="Prevented going back in the characterlist after you move to the other side" />
-    <MESSAGE value="Made java list have different elements depending on actiontype selected by button press." />
-    <MESSAGE value="Counting the round the game is at" />
-    <MESSAGE value="Added action logging to the GameForm.java class and gave GunGuy 3 attacks" />
-    <MESSAGE value="Added animated Sprites, animated sprites for BrawlerGuy.java" />
-    <MESSAGE value="Added Classes to handle SoundEvents." />
-    <MESSAGE value="Ignorable Commit : Made code to allow a scrollable list." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ignorable Commit : Made code to allow a scrollable list." />
   </component>
 </project>

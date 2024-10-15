@@ -16,7 +16,7 @@ public class AdrenalineAbility extends Ability {
     }
 
     @Override
-    public void perform(Arena world, Creature user, List<Creature> targets) {
+    public void perform(Arena world, Creature user, List<Creature> targets) throws InterruptedException {
         super.perform(world, user, targets);
         duration += 3;
     }

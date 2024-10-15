@@ -20,7 +20,7 @@ public abstract class Ability {
         this.targets = targets;
     }
 
-    public void perform(Arena world, Creature user, List<Creature> targets) {
+    public void perform(Arena world, Creature user, List<Creature> targets) throws InterruptedException {
         world.writeOutput(user + " used " + name);
         cooldownProgress = cooldown;
     }

@@ -3,6 +3,7 @@ package Abilities;
 import GameStuff.Ability;
 import GameStuff.Arena;
 import GameStuff.Creature;
+import Util.AbilityUtil;
 
 import java.util.List;
 import java.util.Random;
@@ -19,14 +20,14 @@ public class AttackAbility extends Ability {
     }
 
     @Override
-    public void perform(Arena world, Creature user, List<Creature> targets) {
+    public void perform(Arena world, Creature user, List<Creature> targets) throws InterruptedException {
         super.perform(world, user, targets);
-        Random random = new Random();
+        Thread.sleep(200);
         int min = getMinDamage(user);
         int max = getMaxdamage(user) + 1;
         int chance = getHitChance(user);
         for (Creature creature : targets) {
-            creature.attack(world, 0, chance);
+            creature.attack(world, AbilityUtil.getRandom(min, max), chance);
         }
     }
     protected int getMinDamage(Creature creature) {
