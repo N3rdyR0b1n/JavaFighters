@@ -1,6 +1,7 @@
 package Menu;
 
 import GameStuff.Ability;
+import Item.Item;
 import Item.Items;
 import Util.MenuInfo;
 
@@ -12,6 +13,7 @@ public class TestingFeaturesForm extends JFrame {
     private JList testlist;
     private JPanel panel1;
     private DefaultListModel<Ability> list = new DefaultListModel<Ability>();
+
     public TestingFeaturesForm() {
         super();
         setTitle("Settings!");
@@ -19,12 +21,8 @@ public class TestingFeaturesForm extends JFrame {
         pack();
         setVisible(true);
         setSize(500, 500);
-
-
-
-
-
     }
+
     public void Load() {
         setContentPane(panel1);
         JPanel panel = new JPanel();
@@ -34,7 +32,8 @@ public class TestingFeaturesForm extends JFrame {
         Random random = new Random();
         int max = Items.getItemCount()-1;
         for (int i = 0; i < 100; i++) {
-            list.addElement(Items.getItem(random.nextInt(max)));
+            //list.addElement(Items.getItem(random.nextInt(max)));
+            list.addElement(new Item("adadad","f", 0,0));
         }
     }
 
