@@ -1,0 +1,397 @@
+Index: src/main/java/GameStuff/Creature.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GameStuff;\r\n\r\nimport Abilities.DefendAbility;\r\nimport Abilities.SpareAbility;\r\nimport Util.FileUtil;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Random;\r\n\r\npublic abstract class Creature {\r\n    protected String name;\r\n    protected String fileName;\r\n    private int hp;\r\n    private int maxhp;\r\n    private Random random = new Random();\r\n    protected List<Ability> actions;\r\n    protected List<Ability> attacks;\r\n    protected List<Ability> spares;\r\n    protected List<Ability> defense;\r\n    protected boolean hasTurn =false;\r\n    private ArrayList<List<Ability>> allActions;\r\n    protected int extraDamage;\r\n    protected int age;\r\n\r\n    protected Ability selectedAbility;\r\n    protected boolean targetsSelected;\r\n    protected List<Creature> selectedTargets;\r\n\r\n    public Creature(String name, int hp, String fileName) {\r\n        this.name = name;\r\n        this.hp = hp;\r\n        this.maxhp = hp;\r\n        this.fileName = fileName;\r\n        allActions = new ArrayList<List<Ability>>();\r\n        actions = new ArrayList<>();\r\n\r\n        attacks = new ArrayList<>();\r\n\r\n        spares = new ArrayList<>();\r\n        spares.add(new SpareAbility());\r\n\r\n        defense = new ArrayList<>();\r\n        defense.add(new DefendAbility());\r\n\r\n        allActions.add(actions);\r\n        allActions.add(attacks);\r\n        allActions.add(spares);\r\n        allActions.add(defense);\r\n\r\n        selectedAbility = null;\r\n        targetsSelected = false;\r\n        selectedTargets = new ArrayList<>();\r\n    }\r\n\r\n    public void attack(Arena arena, int damage, int chance) {\r\n        if (random.nextInt( 101) >= chance) {\r\n            arena.writeOutput(this.name + \" dodged the attack\");\r\n            return;\r\n        }\r\n        arena.writeOutput(this.name + \" took \" + damage + \" damage\");\r\n        this.damage(damage);\r\n        if (!this.alive()) {\r\n            arena.writeOutput(this.name + \" died\");\r\n        }\r\n    }\r\n\r\n    public void damage(int damage) {\r\n        this.hp-=damage;\r\n    }\r\n\r\n    public boolean alive() {\r\n        return hp>0;\r\n    }\r\n\r\n    public void rename(String nick) {\r\n        this.name = nick;\r\n    }\r\n\r\n    public String status() {\r\n        return name + \" : \" + hp + \"/\" + maxhp;\r\n    }\r\n\r\n    public String getImageSource() {\r\n        return FileUtil.CHARACTERS+fileName;\r\n    }\r\n\r\n    public int damageMod(int initialDamage) {\r\n        return initialDamage + extraDamage;\r\n    }\r\n\r\n    public void turnTick(Arena arena) {\r\n        for (List<Ability> abilityList : allActions) {\r\n            for (Ability ability : abilityList) {\r\n                ability.Update(arena, this);\r\n            }\r\n        }\r\n    }\r\n\r\n    public void onTurn(Arena arena) {\r\n        hasTurn = true;\r\n    }\r\n\r\n    public void endTurn(Arena arena) {\r\n        hasTurn = false;\r\n    }\r\n\r\n    public List<Ability> getByType(int type) {\r\n        switch (type) {\r\n            case 0:\r\n                return attacks;\r\n            case 1:\r\n                return actions;\r\n            case 2:\r\n                return spares;\r\n            case 3:\r\n                return defense;\r\n            default:\r\n                return null;\r\n        }\r\n    }\r\n\r\n    public void setSelectedAbility(Ability ability) {\r\n        selectedAbility = ability;\r\n    }\r\n\r\n    public void clearSelectedAbility() {\r\n        selectedAbility = null;\r\n    }\r\n\r\n    public Ability getSelectedAbility() {\r\n        return selectedAbility;\r\n    }\r\n\r\n    public void selectTarget(Creature creature) {\r\n        selectedTargets.add(creature);\r\n        targetsSelected = true;\r\n    }\r\n\r\n    public void clearTargets() {\r\n        selectedTargets.clear();\r\n        targetsSelected = false;\r\n    }\r\n\r\n    public boolean isReady() {\r\n        return (selectedAbility != null) && targetsSelected;\r\n    }\r\n\r\n    public List<Creature> getSelectedTargets() {\r\n        return new ArrayList<>(selectedTargets);\r\n    }\r\n\r\n    public void addExtraDamage(int extraDamage) {\r\n        this.extraDamage += extraDamage;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return name;\r\n    }\r\n    public void spriteUpdate(Arena arena) {\r\n        age++;\r\n    }\r\n\r\n    public void heal(int ammount) {\r\n        hp += ammount;\r\n        if (hp > maxhp) {\r\n            hp = maxhp;\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/GameStuff/Creature.java b/src/main/java/GameStuff/Creature.java
+--- a/src/main/java/GameStuff/Creature.java	(revision bce792f4a43100da72f14b3f7ff2a48addd7286b)
++++ b/src/main/java/GameStuff/Creature.java	(date 1728994322764)
+@@ -61,6 +61,11 @@
+         arena.writeOutput(this.name + " took " + damage + " damage");
+         this.damage(damage);
+         if (!this.alive()) {
++            try {
++                Thread.sleep(200);
++            } catch (InterruptedException e) {
++                throw new RuntimeException(e);
++            }
+             arena.writeOutput(this.name + " died");
+         }
+     }
+Index: src/main/java/Item/Item.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Item;\r\n\r\n\r\nimport GameStuff.Ability;\r\nimport GameStuff.Arena;\r\nimport GameStuff.Creature;\r\nimport Menu.GameForm;\r\n\r\nimport java.util.List;\r\n\r\npublic class Item extends Ability implements Cloneable{\r\n    private int id = -1;\r\n    private String consumptionMessage;\r\n    private int minHealing;\r\n    private int maxHealing;\r\n\r\n    public Item(String name, String consumptionmessage, int minHealing, int maxHealing) {\r\n        super(name, 0);\r\n        this.consumptionMessage = consumptionmessage;\r\n        this.maxHealing = maxHealing;\r\n        this.minHealing = minHealing;\r\n    }\r\n\r\n    @Override\r\n    public void perform(Arena world, Creature user, List<Creature> targets) {\r\n        //heal here\r\n        consume(user, world);\r\n    }\r\n\r\n    public void consume(Creature consumer, Arena arena) {\r\n        arena.writeOutput(consumer.toString() + \" \" + consumptionMessage + \" \" + name);\r\n    }\r\n\r\n    public Item clone() {\r\n        try {\r\n            return (Item) super.clone();\r\n        } catch (CloneNotSupportedException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return name;\r\n    }\r\n\r\n\r\n\r\n    public int getId() {\r\n        return id;\r\n    }\r\n    public void setId(int updatedId) {\r\n        if (id == -1) {\r\n            id = updatedId;\r\n        }\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Item/Item.java b/src/main/java/Item/Item.java
+--- a/src/main/java/Item/Item.java	(revision bce792f4a43100da72f14b3f7ff2a48addd7286b)
++++ b/src/main/java/Item/Item.java	(date 1728994101573)
+@@ -25,6 +25,12 @@
+     public void perform(Arena world, Creature user, List<Creature> targets) {
+         //heal here
+         consume(user, world);
++        try {
++            Thread.sleep(300);
++        }
++        catch (InterruptedException e) {
++            throw new RuntimeException(e);
++        }
+     }
+ 
+     public void consume(Creature consumer, Arena arena) {
+Index: src/main/java/Abilities/AttackAbility.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Abilities;\r\n\r\nimport GameStuff.Ability;\r\nimport GameStuff.Arena;\r\nimport GameStuff.Creature;\r\n\r\nimport java.util.List;\r\nimport java.util.Random;\r\n\r\npublic class AttackAbility extends Ability {\r\n    int mindamage;\r\n    int maxdamage;\r\n    int accuracy;\r\n    public AttackAbility(String name, int cooldown, int cooldownProgress, int mindamage, int maxdamage, int hitchance, int targets) {\r\n        super(name, cooldown, cooldownProgress, targets);\r\n        this.mindamage = mindamage;\r\n        this.maxdamage = maxdamage;\r\n        this.accuracy = hitchance;\r\n    }\r\n\r\n    @Override\r\n    public void perform(Arena world, Creature user, List<Creature> targets) {\r\n        super.perform(world, user, targets);\r\n        Random random = new Random();\r\n        int min = getMinDamage(user);\r\n        int max = getMaxdamage(user) + 1;\r\n        int chance = getHitChance(user);\r\n        for (Creature creature : targets) {\r\n            creature.attack(world, 0, chance);\r\n        }\r\n    }\r\n    protected int getMinDamage(Creature creature) {\r\n        return creature.damageMod(mindamage);\r\n    }\r\n\r\n    protected int getMaxdamage(Creature creature) {\r\n        return creature.damageMod(maxdamage);\r\n    }\r\n    protected int getHitChance(Creature creature) {\r\n        return accuracy;\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Abilities/AttackAbility.java b/src/main/java/Abilities/AttackAbility.java
+--- a/src/main/java/Abilities/AttackAbility.java	(revision bce792f4a43100da72f14b3f7ff2a48addd7286b)
++++ b/src/main/java/Abilities/AttackAbility.java	(date 1728994677503)
+@@ -3,6 +3,7 @@
+ import GameStuff.Ability;
+ import GameStuff.Arena;
+ import GameStuff.Creature;
++import Util.AbilityUtil;
+ 
+ import java.util.List;
+ import java.util.Random;
+@@ -21,12 +22,16 @@
+     @Override
+     public void perform(Arena world, Creature user, List<Creature> targets) {
+         super.perform(world, user, targets);
+-        Random random = new Random();
+         int min = getMinDamage(user);
+         int max = getMaxdamage(user) + 1;
+         int chance = getHitChance(user);
+         for (Creature creature : targets) {
+-            creature.attack(world, 0, chance);
++            try {
++                Thread.sleep(200);
++            } catch (InterruptedException e) {
++                throw new RuntimeException(e);
++            }
++            creature.attack(world, AbilityUtil.getRandom(min, max), chance);
+         }
+     }
+     protected int getMinDamage(Creature creature) {
+Index: src/main/java/GameStuff/Arena.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GameStuff;\r\n\r\nimport Item.Item;\r\nimport Item.Items;\r\nimport Util.TextUtil;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Random;\r\n\r\npublic class Arena {\r\n    Random random;\r\n    Container textOutput;\r\n    private int round = 1;\r\n    private final Player player1;\r\n    private final Player player2;\r\n\r\n    public Arena(Player player1, Player player2){\r\n        this.random = new Random();\r\n        this.player1 = player1;\r\n        this.player2 = player2;\r\n\r\n    }\r\n\r\n    public List<Creature> getCreatures() {\r\n        List<Creature> creatures = new ArrayList<>();\r\n        creatures.addAll(player1.getTeam());\r\n        creatures.addAll(player2.getTeam());\r\n        return creatures;\r\n    }\r\n\r\n    public void start() {\r\n        writeOutput(\"Game start!\");\r\n        writeOutput(\"Round 1:\");\r\n    }\r\n\r\n    public void gameTick() {\r\n        List<Creature> creatures = getCreatures();\r\n        for (Creature creature : creatures) {\r\n            creature.turnTick(this);\r\n        }\r\n        writeOutput(\"Round \" + round + \":\");\r\n    }\r\n\r\n    public void writeOutput(String string) {\r\n        Component component = new JLabel(string);\r\n        TextUtil.fontify(component);\r\n        textOutput.add(component);\r\n    }\r\n    public void setTextOutput(Container output) {\r\n        textOutput = output;\r\n    }\r\n    public List<Item> getRelevantItems(boolean left) {\r\n        return left ? player1.getInventory() : player2.getInventory();\r\n    }\r\n\r\n    public int getRound() {\r\n        return round;\r\n    }\r\n    public void nextRound() {\r\n        round++;\r\n        gameTick();\r\n    }\r\n\r\n    public Player getPlayer(int num) {\r\n        if (num == 1) return player1;\r\n        if (num == 2) return player2;\r\n\r\n        return null;\r\n    }\r\n    public void renderTick() {\r\n        List<Creature> creatures = getCreatures();\r\n        for (Creature creature : creatures) {\r\n            creature.spriteUpdate(this);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/GameStuff/Arena.java b/src/main/java/GameStuff/Arena.java
+--- a/src/main/java/GameStuff/Arena.java	(revision bce792f4a43100da72f14b3f7ff2a48addd7286b)
++++ b/src/main/java/GameStuff/Arena.java	(date 1728993346575)
+@@ -9,6 +9,7 @@
+ import java.util.ArrayList;
+ import java.util.List;
+ import java.util.Random;
++import java.util.concurrent.CompletableFuture;
+ 
+ public class Arena {
+     Random random;
+@@ -48,6 +49,7 @@
+         Component component = new JLabel(string);
+         TextUtil.fontify(component);
+         textOutput.add(component);
++
+     }
+     public void setTextOutput(Container output) {
+         textOutput = output;
+Index: src/main/java/GameStuff/Ability.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GameStuff;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic abstract class Ability {\r\n    protected String name;\r\n    private int cooldown;\r\n    private int cooldownProgress;\r\n    private int targets;\r\n\r\n    public Ability(String name, int cooldown, int cooldownProgress, int targets) {\r\n        this(name, targets);\r\n        this.cooldown = cooldown;\r\n        this.cooldownProgress = cooldownProgress;\r\n    }\r\n\r\n    public Ability(String name, int targets) {\r\n        this.name = name;\r\n        this.targets = targets;\r\n    }\r\n\r\n    public void perform(Arena world, Creature user, List<Creature> targets) {\r\n        world.writeOutput(user + \" used \" + name);\r\n        cooldownProgress = cooldown;\r\n    }\r\n\r\n    public boolean canPerform(Arena world, Creature creature, List<Creature> targets) {\r\n        return cooldownProgress <=0;\r\n    }\r\n    public void Update(Arena arena, Creature user) {\r\n        cooldownProgress--;\r\n    }\r\n\r\n    public List<String> getDescription() {\r\n        ArrayList<String> description = new ArrayList<>();\r\n        description.add(\"Name: \" + name);\r\n        description.add(\"Status:\" + ((cooldownProgress>0) ? cooldownProgress + \" turns CD\" : \"READY\"));\r\n        description.add(\"Cooldown: \" + cooldown);\r\n        return description;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return name + ((cooldownProgress>0) ? cooldownProgress + \" turns CD\" : \"READY\");\r\n    }\r\n\r\n    public int getTargets() {\r\n        return targets;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/GameStuff/Ability.java b/src/main/java/GameStuff/Ability.java
+--- a/src/main/java/GameStuff/Ability.java	(revision bce792f4a43100da72f14b3f7ff2a48addd7286b)
++++ b/src/main/java/GameStuff/Ability.java	(date 1728993851470)
+@@ -22,6 +22,12 @@
+ 
+     public void perform(Arena world, Creature user, List<Creature> targets) {
+         world.writeOutput(user + " used " + name);
++        try {
++            Thread.sleep(300);
++        }
++        catch (InterruptedException e) {
++            throw new RuntimeException(e);
++        }
+         cooldownProgress = cooldown;
+     }
+ 
+Index: src/main/java/Creatures/SwordGuy.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Creatures;\r\n\r\n\r\nimport GameStuff.Arena;\r\nimport GameStuff.Creature;\r\nimport Util.FileUtil;\r\n\r\nimport java.io.File;\r\n\r\npublic class SwordGuy extends Creature {\r\n    private static String STAND = \"sword_\";\r\n    private static String SELECTED = \"sword_turn.png\";\r\n    private String pose = STAND;\r\n    private int sprite=1;\r\n    private boolean cntup = true;\r\n\r\n    public SwordGuy(String name) {\r\n        super(name, 45, \"sword/\");\r\n    }\r\n\r\n    @Override\r\n    public String getImageSource() {\r\n        return super.getImageSource() + pose;\r\n    }\r\n    @Override\r\n    public void onTurn(Arena arena) {\r\n        super.onTurn(arena);\r\n        pose = SELECTED;\r\n    }\r\n    @Override\r\n    public void endTurn(Arena arena) {\r\n        super.endTurn(arena);\r\n        pose = STAND + 1 + FileUtil.IMGFORM;\r\n    }\r\n    @Override\r\n    public void spriteUpdate(Arena arena) {\r\n        super.spriteUpdate(arena);\r\n        if (this.hasTurn) {\r\n\r\n        }\r\n        else {\r\n            if (age % 3 == 0) {\r\n                if (cntup) {\r\n                    sprite++;\r\n                    if (sprite > 4) {\r\n                        cntup = false;\r\n                    }\r\n                }\r\n                else {\r\n                    sprite--;\r\n                    if (sprite < 2) {\r\n                        cntup =true;\r\n                    }\r\n                }\r\n                pose = STAND + sprite + FileUtil.IMGFORM;\r\n            }\r\n        }\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Creatures/SwordGuy.java b/src/main/java/Creatures/SwordGuy.java
+--- a/src/main/java/Creatures/SwordGuy.java	(revision bce792f4a43100da72f14b3f7ff2a48addd7286b)
++++ b/src/main/java/Creatures/SwordGuy.java	(date 1728994512758)
+@@ -1,6 +1,7 @@
+ package Creatures;
+ 
+ 
++import Abilities.custom.Sword.StabAttack;
+ import GameStuff.Arena;
+ import GameStuff.Creature;
+ import Util.FileUtil;
+@@ -16,6 +17,7 @@
+ 
+     public SwordGuy(String name) {
+         super(name, 45, "sword/");
++        attacks.add(new StabAttack());
+     }
+ 
+     @Override
+Index: src/main/java/Menu/GameForm.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Menu;\r\n\r\nimport GameStuff.Ability;\r\nimport GameStuff.Arena;\r\nimport GameStuff.Creature;\r\nimport GameStuff.Player;\r\nimport Item.Item;\r\nimport Util.KeyUtil;\r\nimport Util.MenuInfo;\r\nimport Util.TextUtil;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class GameForm extends JFrame {\r\n\r\n    private JPanel mainPanel;\r\n    private JLabel creatureA1;\r\n    private JLabel creatureA2;\r\n    private JLabel creatureA3;\r\n    private JLabel creatureB1;\r\n    private JLabel creatureB2;\r\n    private JLabel creatureB3;\r\n    private JButton fightButton;\r\n    private JButton defendButton;\r\n    private JButton actButton;\r\n    private JButton spareButton;\r\n    private JButton itemButton;\r\n    private JList<Ability> abilities;\r\n    private JScrollPane scrollPane;\r\n    private JLabel roundLbl;\r\n    private JList<Creature> targets;\r\n    private List<JLabel> creatures;\r\n    private DefaultListModel<Ability> jlistAbilities = new DefaultListModel<Ability>();\r\n    private DefaultListModel<Creature> jlistTargets = new DefaultListModel<Creature>();\r\n    private int currentCharacter = 0;\r\n\r\n\r\n    private Timer timer = new Timer(50, this::tick);\r\n\r\n    private Arena arena;\r\n\r\n    public GameForm(Arena arena) {\r\n        super();\r\n        abilities.setModel(jlistAbilities);\r\n        targets.setModel(jlistTargets);\r\n        setContentPane(mainPanel);\r\n        setDefaultCloseOperation(EXIT_ON_CLOSE);\r\n        pack();\r\n        setSize(MenuInfo.WIDTH, MenuInfo.HEIGHT);\r\n        timer.start();\r\n        this.arena = arena;\r\n        loadElements();\r\n        setVisible(true);\r\n\r\n    }\r\n\r\n    private void tick(ActionEvent e) {\r\n\r\n        updateCharacters();\r\n    }\r\n\r\n    public void load() {\r\n        loadGameObjects();\r\n        keyBindingInit();\r\n    }\r\n\r\n    private void loadElements() {\r\n        creatures = new ArrayList<>();\r\n        creatures.add(creatureA1);\r\n        creatures.add(creatureA2);\r\n        creatures.add(creatureA3);\r\n        creatures.add(creatureB1);\r\n        creatures.add(creatureB2);\r\n        creatures.add(creatureB3);\r\n\r\n        JPanel panel = new JPanel();\r\n        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));\r\n        scrollPane.setViewportView(panel);\r\n        arena.setTextOutput(panel);\r\n        for (Component component : panel.getComponents()) {\r\n            TextUtil.fontify(component);\r\n        }\r\n    }\r\n\r\n    private void loadGameObjects() {\r\n        updateCharacters();\r\n        applyFonts();\r\n        arena.getCreatures().get(0).onTurn(arena);\r\n        roundLbl.setText(\"Round : \" + arena.getRound());\r\n        arena.start();\r\n    }\r\n\r\n    private void applyFonts() {\r\n        ArrayList<Component> components = new ArrayList<>(20);\r\n        components.add(fightButton);\r\n        components.add(defendButton);\r\n        components.add(actButton);\r\n        components.add(spareButton);\r\n        components.add(itemButton);\r\n        components.add(mainPanel);\r\n        components.add(abilities);\r\n        components.addAll(creatures);\r\n        for (Component component : components) {\r\n            TextUtil.fontify(component);\r\n        }\r\n        TextUtil.fontify(roundLbl, 2.5f);\r\n    }\r\n\r\n    public void updateCharacters() {\r\n        arena.renderTick();\r\n        List<Creature> creatureList = arena.getCreatures();\r\n\r\n        int i = 0;\r\n        for (JLabel label : creatures) {\r\n            Creature creature = creatureList.get(i);\r\n            label.setText(creature.status());\r\n            label.setIcon(new ImageIcon(creature.getImageSource()));\r\n            i++;\r\n        }\r\n    }\r\n\r\n    public void keyBindingInit() {\r\n        JPanel contentPane = (JPanel) this.getContentPane();\r\n        int condition = JComponent.WHEN_IN_FOCUSED_WINDOW;\r\n        InputMap inputMap = contentPane.getInputMap(condition);\r\n        ActionMap actionMap = contentPane.getActionMap();\r\n\r\n        String next = \"next\";\r\n        String back = \"back\";\r\n\r\n        inputMap.put(KeyStroke.getKeyStroke(KeyUtil.ENTER_KEY, 0), next);\r\n        actionMap.put(next, new AbstractAction() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                Creature currentCreature = arena.getCreatures().get(currentCharacter);\r\n\r\n                if(!currentCreature.isReady()) {\r\n                    if (currentCreature.getSelectedAbility() == null) {\r\n                        if(selectAbility(currentCreature)) {\r\n                            if(currentCreature.getSelectedAbility().getTargets() > 0) {\r\n                                loadTargets(currentCreature);\r\n                            } else {\r\n                                currentCreature.selectTarget(currentCreature);\r\n                            }\r\n                        }\r\n                    } else {\r\n                        selectTarget(currentCreature);\r\n                    }\r\n                } else {\r\n                    proceedWithTurns(currentCreature);\r\n                }\r\n            }\r\n        });\r\n\r\n        inputMap.put(KeyStroke.getKeyStroke(KeyUtil.PREV, 0), back);\r\n        actionMap.put(back, new AbstractAction() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                if (currentCharacter % 3 == 0) {\r\n                    return;\r\n                }\r\n                arena.getCreatures().get(currentCharacter).endTurn(arena);\r\n                currentCharacter--;\r\n                if (currentCharacter < 0) {\r\n                    currentCharacter= arena.getCreatures().size()-1;\r\n                }\r\n                arena.getCreatures().get(currentCharacter).onTurn(arena);\r\n            }\r\n        });\r\n\r\n        fightButton.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                loadButtonOption(0);\r\n            }\r\n        });\r\n        actButton.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                loadButtonOption(1);\r\n            }\r\n        });\r\n        spareButton.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                loadButtonOption(2);\r\n            }\r\n        });\r\n        defendButton.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                loadButtonOption(3);\r\n            }\r\n        });\r\n        itemButton.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                loadInventory();\r\n            }\r\n        });\r\n    }\r\n\r\n    private void loadButtonOption(int optionType) {\r\n        List<Ability> choices = arena.getCreatures().get(currentCharacter).getByType(optionType);\r\n        jlistAbilities.clear();\r\n        if (choices != null) {\r\n            this.addAllAbilities(choices);\r\n        }\r\n    }\r\n\r\n    private void loadInventory() {\r\n        List<Item> choices = arena.getRelevantItems(currentCharacter < 3);\r\n        ArrayList<Ability> items = new ArrayList<Ability>(choices);\r\n        jlistAbilities.clear();\r\n        if (choices != null) {\r\n            this.addAllAbilities(choices);\r\n        }\r\n    }\r\n\r\n    private void loadTargets(Creature currentCreature) {\r\n        Player opponent;\r\n        if (currentCharacter < 3) {\r\n            opponent = arena.getPlayer(2);\r\n        } else {\r\n            opponent = arena.getPlayer(1);\r\n        }\r\n\r\n        addAllTargets(opponent.getTeam());\r\n    }\r\n\r\n    private boolean selectAbility(Creature currentCreature) {\r\n        if(abilities.isSelectionEmpty()){\r\n            return false;\r\n        }\r\n        Ability selectedAbility = abilities.getSelectedValue();\r\n\r\n        currentCreature.setSelectedAbility(selectedAbility);\r\n        return true;\r\n    }\r\n\r\n    private boolean selectTarget(Creature currentCreature) {\r\n        Ability ability = currentCreature.getSelectedAbility();\r\n        if (ability.getTargets() > 0 && targets.isSelectionEmpty()) {\r\n            return false;\r\n        }\r\n\r\n        for (Creature target : targets.getSelectedValuesList()) {\r\n            currentCreature.selectTarget(target);\r\n        }\r\n        jlistTargets.clear();\r\n        return true;\r\n    }\r\n\r\n    private void proceedWithTurns(Creature currentCreature) {\r\n        currentCreature.endTurn(arena);\r\n\r\n        currentCharacter++;\r\n        if (currentCharacter >= creatures.size()) {\r\n            currentCharacter=0;\r\n            arena.nextRound();\r\n\r\n            for (Creature creature : arena.getCreatures()) {\r\n                Ability ability = creature.getSelectedAbility();\r\n                ability.perform(arena, creature, creature.getSelectedTargets());\r\n            }\r\n\r\n            roundLbl.setText(\"Round : \" + arena.getRound());\r\n        }\r\n\r\n        arena.getCreatures().get(currentCharacter).onTurn(arena);\r\n    }\r\n\r\n    private <T extends Creature> void addAllTargets(List<T> list) {\r\n        for (Creature target : list) {\r\n            jlistTargets.addElement(target);\r\n        }\r\n    }\r\n\r\n    private <T extends Ability> void addAllAbilities(List<T> list) {\r\n        for (Ability ability : list) {\r\n            jlistAbilities.addElement(ability);\r\n        }\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Menu/GameForm.java b/src/main/java/Menu/GameForm.java
+--- a/src/main/java/Menu/GameForm.java	(revision bce792f4a43100da72f14b3f7ff2a48addd7286b)
++++ b/src/main/java/Menu/GameForm.java	(date 1728994741904)
+@@ -1,9 +1,6 @@
+ package Menu;
+ 
+-import GameStuff.Ability;
+-import GameStuff.Arena;
+-import GameStuff.Creature;
+-import GameStuff.Player;
++import GameStuff.*;
+ import Item.Item;
+ import Util.KeyUtil;
+ import Util.MenuInfo;
+@@ -15,6 +12,7 @@
+ import java.awt.event.ActionListener;
+ import java.util.ArrayList;
+ import java.util.List;
++import java.util.concurrent.CompletableFuture;
+ 
+ public class GameForm extends JFrame {
+ 
+@@ -39,7 +37,6 @@
+     private DefaultListModel<Creature> jlistTargets = new DefaultListModel<Creature>();
+     private int currentCharacter = 0;
+ 
+-
+     private Timer timer = new Timer(50, this::tick);
+ 
+     private Arena arena;
+@@ -152,7 +149,9 @@
+                         selectTarget(currentCreature);
+                     }
+                 } else {
+-                    proceedWithTurns(currentCreature);
++
++                    CompletableFuture.runAsync(() -> proceedWithTurns(currentCreature));
++
+                 }
+             }
+         });
+@@ -262,17 +261,23 @@
+         currentCharacter++;
+         if (currentCharacter >= creatures.size()) {
+             currentCharacter=0;
+-            arena.nextRound();
+ 
+             for (Creature creature : arena.getCreatures()) {
+                 Ability ability = creature.getSelectedAbility();
+                 ability.perform(arena, creature, creature.getSelectedTargets());
++                try {
++                    Thread.sleep(300);
++                } catch (InterruptedException e) {
++                    throw new RuntimeException(e);
++                }
+             }
+ 
++            arena.nextRound();
+             roundLbl.setText("Round : " + arena.getRound());
+         }
+ 
+         arena.getCreatures().get(currentCharacter).onTurn(arena);
++
+     }
+ 
+     private <T extends Creature> void addAllTargets(List<T> list) {
+Index: src/main/java/Creatures/BrawlerGuy.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Creatures;\r\n\r\nimport GameStuff.Arena;\r\nimport GameStuff.Creature;\r\n\r\npublic class BrawlerGuy extends Creature {\r\n    private  String STAND = \"brawler_\";\r\n    private static String SELECTED = \"brawler_turn.png\";\r\n    private String pose = STAND + \"1.png\";\r\n    private int sprite = 0;\r\n\r\n    public BrawlerGuy(String name) {\r\n        super(name, 65, \"fist/\");\r\n    }\r\n\r\n    @Override\r\n    public String getImageSource() {\r\n        return super.getImageSource() + pose ;\r\n    }\r\n\r\n    @Override\r\n    public void onTurn(Arena arena) {\r\n        super.onTurn(arena);\r\n        pose = SELECTED;\r\n    }\r\n\r\n    public void endTurn(Arena arena) {\r\n        super.endTurn(arena);\r\n        pose = STAND + sprite + \".png\";\r\n    }\r\n\r\n    @Override\r\n    public void spriteUpdate(Arena arena) {\r\n        super.spriteUpdate(arena);\r\n        if (this.hasTurn) {\r\n\r\n        }\r\n        else {\r\n            if (age % 5 == 0) {\r\n                sprite++;\r\n                if (sprite > 5) {\r\n                    sprite = 1;\r\n                }\r\n                pose = STAND + sprite + \".png\";\r\n            }\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Creatures/BrawlerGuy.java b/src/main/java/Creatures/BrawlerGuy.java
+--- a/src/main/java/Creatures/BrawlerGuy.java	(revision bce792f4a43100da72f14b3f7ff2a48addd7286b)
++++ b/src/main/java/Creatures/BrawlerGuy.java	(date 1728993704970)
+@@ -1,5 +1,9 @@
+ package Creatures;
+ 
++import Abilities.custom.Brawler.AdrenalineAbility;
++import Abilities.custom.Brawler.FalconPunchAttack;
++import Abilities.custom.Brawler.KickAttack;
++import Abilities.custom.Brawler.PunchAttack;
+ import GameStuff.Arena;
+ import GameStuff.Creature;
+ 
+@@ -11,6 +15,10 @@
+ 
+     public BrawlerGuy(String name) {
+         super(name, 65, "fist/");
++        actions.add(new AdrenalineAbility());
++        attacks.add(new FalconPunchAttack());
++        attacks.add(new PunchAttack());
++        attacks.add(new KickAttack());
+     }
+ 
+     @Override
+Index: src/main/java/Util/AbilityUtil.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Util;\r\n\r\nimport GameStuff.Creature;\r\n\r\nimport java.util.List;\r\nimport java.util.Random;\r\n\r\npublic class AbilityUtil {\r\n\r\n    private static final Random random = new Random();\r\n\r\n    public static int getRandom(int min, int max) {\r\n        return min + random.nextInt(min-max+1);\r\n    }\r\n\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Util/AbilityUtil.java b/src/main/java/Util/AbilityUtil.java
+--- a/src/main/java/Util/AbilityUtil.java	(revision bce792f4a43100da72f14b3f7ff2a48addd7286b)
++++ b/src/main/java/Util/AbilityUtil.java	(date 1728557352253)
+@@ -10,7 +10,7 @@
+     private static final Random random = new Random();
+ 
+     public static int getRandom(int min, int max) {
+-        return min + random.nextInt(min-max+1);
++        return min + random.nextInt(max-min+1);
+     }
+ 
+ 
+Index: src/main/java/Abilities/custom/Sword/StabAttack.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Abilities/custom/Sword/StabAttack.java b/src/main/java/Abilities/custom/Sword/StabAttack.java
+new file mode 100644
+--- /dev/null	(date 1728994512764)
++++ b/src/main/java/Abilities/custom/Sword/StabAttack.java	(date 1728994512764)
+@@ -0,0 +1,9 @@
++package Abilities.custom.Sword;
++
++import Abilities.AttackAbility;
++
++public class StabAttack extends AttackAbility {
++    public StabAttack() {
++        super("Stab", 0, 0, 12, 18, 60, 1);
++    }
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"0527c8a4-1ad2-4f7a-879d-bf32e3fb574d\" name=\"Changes\" comment=\"Ignorable Commit : Made code to allow a scrollable list.\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/AdrenalineAbility.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/FalconPunchAttack.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/KickAttack.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/PunchAttack.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Abilities/custom/QuickDrawAttackAbility.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/QuickDrawAttackAbility.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Abilities/custom/ShootAttackAbility.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/ShootAttackAbility.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Abilities/custom/TriggerFinger.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/TriggerFinger.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Creatures/GunGuy.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Creatures/GunGuy.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/GameStuff/Creature.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/GameStuff/Creature.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Util/AbilityUtil.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Util/AbilityUtil.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/../..\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2mvC2cz1RDUBrlzUU0RLcxme4E1\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n    <option name=\"showMembers\" value=\"true\" />\r\n    <option name=\"showVisibilityIcons\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"JavaClassFindUsagesOptions.isDerivedClasses\": \"true\",\r\n    \"JavaClassFindUsagesOptions.isSearchForTextOccurrences\": \"false\",\r\n    \"JavaClassFindUsagesOptions.isUsages\": \"false\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/NielsvandenHeuvel/GitHub/JavaFighters/code/Java Fighters/src/main/resources/assets/audio\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\NielsvandenHeuvel\\GitHub\\JavaFighters\\code\\Java Fighters\\src\\main\\resources\\assets\\audio\" />\r\n      <recent name=\"C:\\Users\\NielsvandenHeuvel\\GitHub\\JavaFighters\\code\\Java Fighters\\src\\main\\resources\\assets\\textures\\characters\\sword\" />\r\n      <recent name=\"C:\\Users\\NielsvandenHeuvel\\GitHub\\JavaFighters\\code\\Java Fighters\\src\\main\\resources\\assets\\textures\\characters\\gun\" />\r\n      <recent name=\"C:\\Users\\NielsvandenHeuvel\\GitHub\\JavaFighters\\code\\Java Fighters\\src\\main\\resources\\assets\\textures\\characters\\fist\" />\r\n      <recent name=\"C:\\Users\\NielsvandenHeuvel\\GitHub\\JavaFighters\\code\\Java Fighters\\src\\main\\resources\\assets\\textures\\characters\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\NielsvandenHeuvel\\GitHub\\JavaFighters\\code\\Java Fighters\\src\\main\\resources\\assets\\textures\\characters\\fist\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Java Fighter\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"17\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Game\" />\r\n      <module name=\"Java_Fighters\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"0527c8a4-1ad2-4f7a-879d-bf32e3fb574d\" name=\"Changes\" comment=\"\" />\r\n      <created>1727947458698</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1727947458698</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"renamed main.java.item to item in menu (it was annoying me)\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727954969953</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727954969953</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Added onTurn method as well as extra sprites to display which character is currently being controlled\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728330574540</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728330574540</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Added Keybinding (enter key but is configurable in KeyUtil) and added key to switch between the active character.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728333097229</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728333097229</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Prevented going back in the characterlist after you move to the other side\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728333533168</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728333533168</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Made java list have different elements depending on actiontype selected by button press.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728337359459</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728337359459</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Counting the round the game is at\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728388399966</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728388399966</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Added action logging to the GameForm.java class and gave GunGuy 3 attacks\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728389190818</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728389190818</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Added animated Sprites, animated sprites for BrawlerGuy.java\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728400003060</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728400003060</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Added Classes to handle SoundEvents.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728552652462</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728552652462</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Ignorable Commit : Made code to allow a scrollable list.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728554125138</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728554125138</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"11\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT\" value=\"false\" />\r\n    <option name=\"CHECK_NEW_TODO\" value=\"false\" />\r\n    <MESSAGE value=\"renamed main.java.item to item in menu (it was annoying me)\" />\r\n    <MESSAGE value=\"Added onTurn method as well as extra sprites to display which character is currently being controlled\" />\r\n    <MESSAGE value=\"Added Keybinding (enter key but is configurable in KeyUtil) and added key to switch between the active character.\" />\r\n    <MESSAGE value=\"Prevented going back in the characterlist after you move to the other side\" />\r\n    <MESSAGE value=\"Made java list have different elements depending on actiontype selected by button press.\" />\r\n    <MESSAGE value=\"Counting the round the game is at\" />\r\n    <MESSAGE value=\"Added action logging to the GameForm.java class and gave GunGuy 3 attacks\" />\r\n    <MESSAGE value=\"Added animated Sprites, animated sprites for BrawlerGuy.java\" />\r\n    <MESSAGE value=\"Added Classes to handle SoundEvents.\" />\r\n    <MESSAGE value=\"Ignorable Commit : Made code to allow a scrollable list.\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Ignorable Commit : Made code to allow a scrollable list.\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision bce792f4a43100da72f14b3f7ff2a48addd7286b)
++++ b/.idea/workspace.xml	(date 1728994588001)
+@@ -4,17 +4,17 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="0527c8a4-1ad2-4f7a-879d-bf32e3fb574d" name="Changes" comment="Ignorable Commit : Made code to allow a scrollable list.">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/AdrenalineAbility.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/FalconPunchAttack.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/KickAttack.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/PunchAttack.java" afterDir="false" />
++    <list default="true" id="0527c8a4-1ad2-4f7a-879d-bf32e3fb574d" name="Changes" comment="Added Attacks for Brawler guy and GunGuy">
++      <change afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Sword/StabAttack.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/QuickDrawAttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/QuickDrawAttackAbility.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/ShootAttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/ShootAttackAbility.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/TriggerFinger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/TriggerFinger.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Creatures/GunGuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creatures/GunGuy.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/AttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/AttackAbility.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/Creatures/BrawlerGuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creatures/BrawlerGuy.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/Creatures/SwordGuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creatures/SwordGuy.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Ability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Ability.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Arena.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/Item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Item/Item.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/Util/AbilityUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/AbilityUtil.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -43,20 +43,20 @@
+     <option name="showMembers" value="true" />
+     <option name="showVisibilityIcons" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "JavaClassFindUsagesOptions.isDerivedClasses": "true",
+-    "JavaClassFindUsagesOptions.isSearchForTextOccurrences": "false",
+-    "JavaClassFindUsagesOptions.isUsages": "false",
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "ignore.virus.scanning.warn.message": "true",
+-    "last_opened_file_path": "C:/Users/NielsvandenHeuvel/GitHub/JavaFighters/code/Java Fighters/src/main/resources/assets/audio",
+-    "project.structure.last.edited": "Project",
+-    "project.structure.proportion": "0.15",
+-    "project.structure.side.proportion": "0.2"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;JavaClassFindUsagesOptions.isDerivedClasses&quot;: &quot;true&quot;,
++    &quot;JavaClassFindUsagesOptions.isSearchForTextOccurrences&quot;: &quot;false&quot;,
++    &quot;JavaClassFindUsagesOptions.isUsages&quot;: &quot;false&quot;,
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/NielsvandenHeuvel/GitHub/JavaFighters/code/Java Fighters/src/main/resources/assets/audio&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\audio" />
+@@ -169,7 +169,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1728554125138</updated>
+     </task>
+-    <option name="localTasksCounter" value="11" />
++    <task id="LOCAL-00011" summary="Added Attacks for Brawler guy and GunGuy">
++      <option name="closed" value="true" />
++      <created>1728556916850</created>
++      <option name="number" value="00011" />
++      <option name="presentableId" value="LOCAL-00011" />
++      <option name="project" value="LOCAL" />
++      <updated>1728556916850</updated>
++    </task>
++    <option name="localTasksCounter" value="12" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
+@@ -185,6 +193,7 @@
+     <MESSAGE value="Added animated Sprites, animated sprites for BrawlerGuy.java" />
+     <MESSAGE value="Added Classes to handle SoundEvents." />
+     <MESSAGE value="Ignorable Commit : Made code to allow a scrollable list." />
+-    <option name="LAST_COMMIT_MESSAGE" value="Ignorable Commit : Made code to allow a scrollable list." />
++    <MESSAGE value="Added Attacks for Brawler guy and GunGuy" />
++    <option name="LAST_COMMIT_MESSAGE" value="Added Attacks for Brawler guy and GunGuy" />
+   </component>
+ </project>
+\ No newline at end of file
