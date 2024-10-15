@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12c9bbc0-35da-40da-80af-acda19b4c4e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Sword/StabAttack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GameStuff/TurnThread.java" afterDir="false" />
+    <list default="true" id="12c9bbc0-35da-40da-80af-acda19b4c4e0" name="Changes" comment="Ignorable Commit : Made code to allow a scrollable list.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/AttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/AttackAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/AdrenalineAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/AdrenalineAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/TriggerFinger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/TriggerFinger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Creatures/BrawlerGuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creatures/BrawlerGuy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Creatures/SwordGuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Creatures/SwordGuy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Ability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Ability.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Arena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/GameForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/GameForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Util/AbilityUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/AbilityUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +23,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2nTSYg52bITM5G7fpSzielMZBGu" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -46,6 +35,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Unnamed.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true"
   }
@@ -69,5 +59,9 @@
       <updated>1728995623761</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Ignorable Commit : Made code to allow a scrollable list." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ignorable Commit : Made code to allow a scrollable list." />
   </component>
 </project>
