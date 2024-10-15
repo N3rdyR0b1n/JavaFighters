@@ -20,8 +20,7 @@ public class Game {
     public void run() {
         MenuInfo.init();
         System.out.println(":3");
-        //MainMenuForm form = new MainMenuForm();
-        TestingFeaturesForm form2 = new TestingFeaturesForm();
+        MainMenuForm form = new MainMenuForm();
     }
 
 

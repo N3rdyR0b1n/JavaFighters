@@ -39,7 +39,6 @@ public class GameForm extends JFrame {
     private DefaultListModel<Creature> jlistTargets = new DefaultListModel<Creature>();
     private int currentCharacter = 0;
 
-
     private Timer timer = new Timer(50, this::tick);
 
     private Arena arena;
@@ -56,11 +55,9 @@ public class GameForm extends JFrame {
         this.arena = arena;
         loadElements();
         setVisible(true);
-
     }
 
     private void tick(ActionEvent e) {
-
         updateCharacters();
     }
 

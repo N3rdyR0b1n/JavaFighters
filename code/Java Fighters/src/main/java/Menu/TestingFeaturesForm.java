@@ -12,7 +12,7 @@ public class TestingFeaturesForm extends JFrame {
     private JScrollPane scrollpane;
     private JList testlist;
     private JPanel panel1;
-    private DefaultListModel<Ability> list = new DefaultListModel<Ability>();
+    private DefaultListModel<String> list = new DefaultListModel<String>();
 
     public TestingFeaturesForm() {
         super();
@@ -21,6 +21,8 @@ public class TestingFeaturesForm extends JFrame {
         pack();
         setVisible(true);
         setSize(500, 500);
+
+        Load();
     }
 
     public void Load() {
@@ -33,7 +35,7 @@ public class TestingFeaturesForm extends JFrame {
         int max = Items.getItemCount()-1;
         for (int i = 0; i < 100; i++) {
             //list.addElement(Items.getItem(random.nextInt(max)));
-            list.addElement(new Item("adadad","f", 0,0));
+            list.addElement("tcrfyvgubhij");
         }
     }
 
