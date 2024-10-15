@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12c9bbc0-35da-40da-80af-acda19b4c4e0" name="Changes" comment="Ignorable Commit : Made code to allow a scrollable list.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="12c9bbc0-35da-40da-80af-acda19b4c4e0" name="Changes" comment="added fontification to lists">
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/TurnThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/TurnThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,10 +58,20 @@
       <option name="presentableId" value="Default" />
       <updated>1728995623761</updated>
     </task>
+    <task id="LOCAL-00001" summary="added fontification to lists">
+      <option name="closed" value="true" />
+      <created>1729000569914</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1729000569914</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Ignorable Commit : Made code to allow a scrollable list." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ignorable Commit : Made code to allow a scrollable list." />
+    <MESSAGE value="added fontification to lists" />
+    <option name="LAST_COMMIT_MESSAGE" value="added fontification to lists" />
   </component>
 </project>

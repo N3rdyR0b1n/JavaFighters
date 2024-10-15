@@ -148,9 +148,7 @@ public class GameForm extends JFrame {
                         selectTarget(currentCreature);
                     }
                 } else {
-
                     CompletableFuture.runAsync(() -> proceedWithTurns(currentCreature));
-
                 }
             }
         });
@@ -264,6 +262,7 @@ public class GameForm extends JFrame {
         }
         arena.getCreatures().get(currentCharacter).onTurn(arena);
 
+        jlistAbilities.clear();
     }
 
     private <T extends Creature> void addAllTargets(List<T> list) {
