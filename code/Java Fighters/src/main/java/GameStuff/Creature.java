@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Random;
 
 public abstract class Creature {
+    protected static String DEAD = "dead.png";
     protected String name;
     protected String fileName;
     private int hp;
@@ -78,7 +79,7 @@ public abstract class Creature {
     }
 
     public String status() {
-        return name + " : " + hp + "/" + maxhp;
+        return alive() ? name + " : " + hp + "/" + maxhp : "Knocked Out";
     }
 
     public String getImageSource() {

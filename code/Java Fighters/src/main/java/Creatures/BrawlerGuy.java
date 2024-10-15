@@ -40,6 +40,10 @@ public class BrawlerGuy extends Creature {
     @Override
     public void spriteUpdate(Arena arena) {
         super.spriteUpdate(arena);
+        if (!alive()) {
+            pose = DEAD;
+            return;
+        }
         if (this.hasTurn) {
 
         }

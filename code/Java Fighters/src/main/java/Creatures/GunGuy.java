@@ -40,6 +40,10 @@ public class GunGuy extends Creature {
     @Override
     public void spriteUpdate(Arena arena) {
         super.spriteUpdate(arena);
+        if (!alive()) {
+            pose = DEAD;
+            return;
+        }
         if (this.hasTurn) {
 
         }
@@ -65,6 +69,7 @@ public class GunGuy extends Creature {
                 pose = STAND + sprite + FileUtil.IMGFORM;
             }
         }
+
     }
 
 
