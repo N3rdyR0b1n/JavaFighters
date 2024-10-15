@@ -79,7 +79,7 @@ public class GameForm extends JFrame {
 
         arena.setTextOutput(text);
         actionlog.setModel(text);
-
+        TextUtil.fontify(actionlog);
     }
 
     private void loadGameObjects() {
@@ -100,6 +100,7 @@ public class GameForm extends JFrame {
         components.add(mainPanel);
         components.add(abilities);
         components.addAll(creatures);
+        components.add(targets);
         for (Component component : components) {
             TextUtil.fontify(component);
         }
@@ -109,6 +110,7 @@ public class GameForm extends JFrame {
     public void updateCharacters() {
         arena.renderTick();
         List<Creature> creatureList = arena.getCreatures();
+
         int i = 0;
         for (JLabel label : creatures) {
             Creature creature = creatureList.get(i);
@@ -123,8 +125,10 @@ public class GameForm extends JFrame {
         int condition = JComponent.WHEN_IN_FOCUSED_WINDOW;
         InputMap inputMap = contentPane.getInputMap(condition);
         ActionMap actionMap = contentPane.getActionMap();
+
         String next = "next";
         String back = "back";
+
         inputMap.put(KeyStroke.getKeyStroke(KeyUtil.ENTER_KEY, 0), next);
         actionMap.put(next, new AbstractAction() {
             @Override
@@ -144,9 +148,7 @@ public class GameForm extends JFrame {
                         selectTarget(currentCreature);
                     }
                 } else {
-
                     CompletableFuture.runAsync(() -> proceedWithTurns(currentCreature));
-
                 }
             }
         });
@@ -260,6 +262,7 @@ public class GameForm extends JFrame {
         }
         arena.getCreatures().get(currentCharacter).onTurn(arena);
 
+        jlistAbilities.clear();
     }
 
     private <T extends Creature> void addAllTargets(List<T> list) {

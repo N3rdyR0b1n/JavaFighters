@@ -16,6 +16,8 @@ public class TurnThread extends Thread {
         for (Creature creature : arena.getCreatures()) {
             try {
                 creature.getSelectedAbility().perform(arena, creature, creature.getSelectedTargets());
+                creature.clearSelectedAbility();
+                creature.clearTargets();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
