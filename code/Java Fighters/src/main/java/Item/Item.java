@@ -5,6 +5,7 @@ import GameStuff.Ability;
 import GameStuff.Arena;
 import GameStuff.Creature;
 import Menu.GameForm;
+import Util.AbilityUtil;
 
 import java.util.List;
 
@@ -22,13 +23,20 @@ public class Item extends Ability implements Cloneable{
     }
 
     @Override
-    public void perform(Arena world, Creature user, List<Creature> targets) {
-        //heal here
+    public void perform(Arena world, Creature user, List<Creature> targets) throws InterruptedException{
         consume(user, world);
     }
 
-    public void consume(Creature consumer, Arena arena) {
+    public void consume(Creature consumer, Arena arena) throws InterruptedException {
         arena.writeOutput(consumer.toString() + " " + consumptionMessage + " " + name);
+        Thread.sleep(500);
+        int healing = AbilityUtil.getRandom(minHealing, maxHealing);
+        consumer.heal(healing);
+        arena.writeOutput(consumer + " healed " + healing + " Hp");
+        if (consumer.hasMaxHealth()) {
+            Thread.sleep(300);
+            arena.writeOutput(consumer + " fully restored");
+        }
     }
 
     public Item clone() {

@@ -26,6 +26,7 @@ public class AttackAbility extends Ability {
         int max = getMaxdamage(user) + 1;
         int chance = getHitChance(user);
         for (Creature creature : targets) {
+
             creature.attack(world, AbilityUtil.getRandom(min, max), chance);
         }
     }

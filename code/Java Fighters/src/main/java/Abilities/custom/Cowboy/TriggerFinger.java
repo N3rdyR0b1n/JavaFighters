@@ -16,6 +16,7 @@ public class TriggerFinger extends Ability {
     @Override
     public void perform(Arena world, Creature user, List<Creature> targets) throws InterruptedException {
         super.perform(world, user, targets);
+        Thread.sleep(300);
         user.addExtraDamage(5);
         world.writeOutput(user + "'s damage has been increased by 5 !");
     }

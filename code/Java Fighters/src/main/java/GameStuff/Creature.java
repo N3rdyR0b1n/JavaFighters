@@ -54,7 +54,8 @@ public abstract class Creature {
         selectedTargets = new ArrayList<>();
     }
 
-    public void attack(Arena arena, int damage, int chance) {
+    public void attack(Arena arena, int damage, int chance) throws InterruptedException{
+        Thread.sleep(500);
         if (random.nextInt( 101) >= chance) {
             arena.writeOutput(this.name + " dodged the attack");
             return;
@@ -168,5 +169,8 @@ public abstract class Creature {
         if (hp > maxhp) {
             hp = maxhp;
         }
+    }
+    public boolean hasMaxHealth() {
+        return hp >= maxhp;
     }
 }

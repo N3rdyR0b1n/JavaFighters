@@ -36,7 +36,7 @@ public class GameForm extends JFrame {
     private List<JLabel> creatures;
     private DefaultListModel<Ability> jlistAbilities = new DefaultListModel<Ability>();
     private DefaultListModel<Creature> jlistTargets = new DefaultListModel<Creature>();
-    private DefaultListModel<String> text = new DefaultListModel<>();
+    private volatile DefaultListModel<String> text = new DefaultListModel<>();;
     private int currentCharacter = 0;
 
     private Timer timer = new Timer(50, this::tick);
@@ -60,6 +60,7 @@ public class GameForm extends JFrame {
 
     private void tick(ActionEvent e) {
         updateCharacters();
+        scrollPane.getVerticalScrollBar();
     }
 
     public void load() {
