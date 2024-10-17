@@ -3,6 +3,8 @@ package GameStuff;
 import Item.Item;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Future;
 
 public class Player {
 
@@ -20,6 +22,9 @@ public class Player {
         return team;
     }
     public List<Item> getInventory() {
+        Future future = CompletableFuture.runAsync(() -> getInventory());
+        Future future2 = CompletableFuture.runAsync(() -> getInventory());
+
         return inventory;
     }
 

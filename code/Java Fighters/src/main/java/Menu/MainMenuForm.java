@@ -1,7 +1,5 @@
 package Menu;
 
-
-
 import Creatures.BrawlerGuy;
 import Creatures.GunGuy;
 import Creatures.SwordGuy;
