@@ -148,7 +148,7 @@ public class GameForm extends JFrame {
                         selectTarget(currentCreature);
                     }
                 } else {
-                    CompletableFuture.runAsync(() -> proceedWithTurns(currentCreature));
+                    proceedWithTurns(currentCreature);
                 }
             }
         });
@@ -160,8 +160,21 @@ public class GameForm extends JFrame {
                 if (currentCharacter % 3 == 0) {
                     return;
                 }
-                arena.getCreatures().get(currentCharacter).endTurn(arena);
+                List<Creature> creatures = arena.getCreatures();
+                creatures.get(currentCharacter).endTurn(arena);
+                int current = currentCharacter;
                 currentCharacter--;
+                while (currentCharacter % 3 != 0) {
+                    Creature creature = creatures.get(currentCharacter);
+                    if (creature.alive()) {
+                        break;
+                    }
+                    currentCharacter--;
+                }
+                if (currentCharacter < 0 || currentCharacter < 3 && current >= 3) {
+                    currentCharacter = current;
+                }
+
                 if (currentCharacter < 0) {
                     currentCharacter= arena.getCreatures().size()-1;
                 }
@@ -254,20 +267,31 @@ public class GameForm extends JFrame {
 
     private void proceedWithTurns(Creature currentCreature) {
         currentCreature.endTurn(arena);
+        List<Creature> creatures = arena.getCreatures();
 
         currentCharacter++;
         if (currentCharacter >= creatures.size()) {
             currentCharacter=0;
-            new TurnThread(arena, roundLbl).run();
+            CompletableFuture.runAsync(() -> new TurnThread(arena, roundLbl).run());
         }
-        arena.getCreatures().get(currentCharacter).onTurn(arena);
-
+        Creature next = creatures.get(currentCharacter);
+        while (!next.alive()) {
+            currentCharacter++;
+            if (currentCharacter >= creatures.size()) {
+                currentCharacter=0;
+                CompletableFuture.runAsync(() -> new TurnThread(arena, roundLbl).run());
+            }
+            next = creatures.get(currentCharacter);
+        }
+        creatures.get(currentCharacter).onTurn(arena);
         jlistAbilities.clear();
     }
 
     private <T extends Creature> void addAllTargets(List<T> list) {
         for (Creature target : list) {
-            jlistTargets.addElement(target);
+            if (target.alive()) {
+                jlistTargets.addElement(target);
+            }
         }
     }
 

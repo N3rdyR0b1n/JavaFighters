@@ -70,7 +70,6 @@ public class Arena {
     public Player getPlayer(int num) {
         if (num == 1) return player1;
         if (num == 2) return player2;
-
         return null;
     }
     public void renderTick() {

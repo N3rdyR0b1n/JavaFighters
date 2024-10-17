@@ -22,7 +22,6 @@ public class AttackAbility extends Ability {
     @Override
     public void perform(Arena world, Creature user, List<Creature> targets) throws InterruptedException {
         super.perform(world, user, targets);
-        Thread.sleep(200);
         int min = getMinDamage(user);
         int max = getMaxdamage(user) + 1;
         int chance = getHitChance(user);
