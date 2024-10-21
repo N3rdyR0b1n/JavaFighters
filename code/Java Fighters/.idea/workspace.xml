@@ -10,13 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12c9bbc0-35da-40da-80af-acda19b4c4e0" name="Changes" comment="Added Winning and added pauses between actions">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Java_Fighters_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Java_Fighters_jar/Java_Fighters.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_15_2024_2_23_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_15_2024_2_23_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/MainMenuForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/MainMenuForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,20 +41,23 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/NielsvandenHeuvel/OneDrive - Fam. van den Heuvel/TUE/Java_Fighters_Laptop/JavaFighters/code/Java Fighters/target/Java_Fighters-1.0-SNAPSHOT.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.Unnamed.executor": "Run",
+    "JAR Application.runJar.executor": "Run",
+    "Maven.Java_Fighters [package].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/20241137/OneDrive - TU Eindhoven/Documents/GitHub/JavaFighters/code/Java Fighters/target/Java_Fighters-1.0-SNAPSHOT.jar",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\fist" />
@@ -71,7 +69,7 @@
       <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
+  <component name="RunManager" selected="JAR Application.runJar">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="Java_Fighters" />
@@ -79,15 +77,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Unnamed" type="JarApplication" nameIsGenerated="true">
+    <configuration name="runJar" type="JarApplication">
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/Java_Fighters-1.0-SNAPSHOT.jar" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\NielsvandenHeuvel\OneDrive - Fam. van den Heuvel\TUE\Java_Fighters_Laptop\JavaFighters\code\Java Fighters" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\20241137\OneDrive - TU Eindhoven\Documents\GitHub\JavaFighters\code\Java Fighters" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
-      <item itemvalue="JAR Application.Unnamed" />
+      <item itemvalue="JAR Application.runJar" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
