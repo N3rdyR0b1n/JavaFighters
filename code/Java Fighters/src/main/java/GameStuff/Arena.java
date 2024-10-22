@@ -1,8 +1,6 @@
 package GameStuff;
 
-import Item.Item;
-import Item.Items;
-import Util.TextUtil;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -55,7 +53,7 @@ public class Arena {
     public void setTextOutput(DefaultListModel output) {
         textOutput = output;
     }
-    public List<Item> getRelevantItems(boolean left) {
+    public List<Ability> getRelevantItems(boolean left) {
         return left ? player1.getInventory() : player2.getInventory();
     }
 

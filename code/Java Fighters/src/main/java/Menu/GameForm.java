@@ -143,10 +143,12 @@ public class GameForm extends JFrame {
                                 loadTargets(currentCreature);
                             } else {
                                 currentCreature.selectTarget(currentCreature);
+                                proceedWithTurns(currentCreature);
                             }
                         }
                     } else {
                         selectTarget(currentCreature);
+                        proceedWithTurns(currentCreature);
                     }
                 } else {
                     proceedWithTurns(currentCreature);
@@ -224,12 +226,10 @@ public class GameForm extends JFrame {
     }
 
     private void loadInventory() {
-        List<Item> choices = arena.getRelevantItems(currentCharacter < 3);
+        List<Ability> choices = arena.getRelevantItems(currentCharacter < 3);
         ArrayList<Ability> items = new ArrayList<Ability>(choices);
         jlistAbilities.clear();
-        if (choices != null) {
-            this.addAllAbilities(choices);
-        }
+        this.addAllAbilities(items);
     }
 
     private void loadTargets(Creature currentCreature) {

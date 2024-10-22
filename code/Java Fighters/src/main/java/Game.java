@@ -1,3 +1,4 @@
+
 import Item.Items;
 import Menu.MainMenuForm;
 import Menu.TestingFeaturesForm;
@@ -13,8 +14,8 @@ public class Game {
     }
 
     public Game() {
-        Items.init();
         SoundUtil.init();
+        Items.init();
     }
 
     public void run() {

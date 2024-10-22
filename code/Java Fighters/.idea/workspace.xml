@@ -10,12 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12c9bbc0-35da-40da-80af-acda19b4c4e0" name="Changes" comment="Added Winning and added pauses between actions">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Java_Fighters_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Java_Fighters_jar/Java_Fighters.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_15_2024_2_23_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_15_2024_2_23_PM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Item/UsableItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/DefendAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/DefendAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/FalconPunchAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/FalconPunchAttack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Ability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Ability.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Arena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Menu/MainMenuForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/MainMenuForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,6 +153,6 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Java_Fighters$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1729150912994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Java_Fighters$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1729161311068" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

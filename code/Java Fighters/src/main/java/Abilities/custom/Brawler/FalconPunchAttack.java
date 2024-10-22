@@ -6,12 +6,19 @@ import GameStuff.Arena;
 import GameStuff.Creature;
 import Util.AbilityUtil;
 
+import java.util.List;
+
 public class FalconPunchAttack extends AttackAbility {
 
     private Creature target = null;
     private int burningTicks = 0;
     public FalconPunchAttack() {
         super("Falcon Punch", 1, 0, 10, 15, 50, 1);
+    }
+
+    @Override
+    public void perform(Arena world, Creature user, List<Creature> targets) throws InterruptedException {
+        super.perform(world, user, targets);
     }
 
     @Override

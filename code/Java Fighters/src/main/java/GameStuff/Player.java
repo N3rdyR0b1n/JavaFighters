@@ -1,6 +1,5 @@
 package GameStuff;
 
-import Item.Item;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -10,9 +9,9 @@ public class Player {
 
     private List<Creature> team;
     private String name;
-    private List<Item> inventory;
+    private List<Ability> inventory;
 
-    public Player(List<Creature> creatures, String username, List<Item> inventory) {
+    public Player(List<Creature> creatures, String username, List<Ability> inventory) {
         this.team = creatures;
         this.name = username;
         this.inventory = inventory;
@@ -21,10 +20,7 @@ public class Player {
     public List<Creature> getTeam() {
         return team;
     }
-    public List<Item> getInventory() {
-        Future future = CompletableFuture.runAsync(() -> getInventory());
-        Future future2 = CompletableFuture.runAsync(() -> getInventory());
-
+    public List<Ability> getInventory() {
         return inventory;
     }
 

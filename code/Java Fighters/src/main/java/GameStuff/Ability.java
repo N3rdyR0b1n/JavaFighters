@@ -18,6 +18,8 @@ public abstract class Ability {
     public Ability(String name, int targets) {
         this.name = name;
         this.targets = targets;
+        this.cooldown = 0;
+        this.cooldownProgress=0;
     }
 
     public void perform(Arena world, Creature user, List<Creature> targets) throws InterruptedException {

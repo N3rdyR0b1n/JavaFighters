@@ -1,8 +1,10 @@
 package Menu;
 
+import Abilities.custom.Cowboy.TriggerFinger;
 import Creatures.BrawlerGuy;
 import Creatures.GunGuy;
 import Creatures.SwordGuy;
+import GameStuff.Ability;
 import GameStuff.Arena;
 import GameStuff.Creature;
 import GameStuff.Player;
@@ -76,10 +78,10 @@ public class MainMenuForm extends JFrame{
 
     private void playButtonPressed(ActionEvent e) {
         List<Creature> p1characters = new ArrayList<>();
-
         List<Creature> p2characters = new ArrayList<>();
-        List<Item> p1inventory = new ArrayList<>();
-        List<Item> p2inventory = new ArrayList<>();
+
+        List<Ability> p1inventory = new ArrayList<>();
+        List<Ability> p2inventory = new ArrayList<>();
 
         p1characters.add(new SwordGuy("john sword"));
         p1characters.add(new SwordGuy("jane sword"));
@@ -97,7 +99,6 @@ public class MainMenuForm extends JFrame{
 
         Player player1 = new Player(p1characters, "Player_1", p1inventory);
         Player player2 = new Player(p2characters, "Player_2", p2inventory);
-
 
         Arena arena = new Arena(player1, player2);
 

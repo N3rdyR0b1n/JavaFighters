@@ -23,6 +23,8 @@ public abstract class Creature {
     private ArrayList<List<Ability>> allActions;
     protected int extraDamage;
     protected int age;
+    private Player owner;
+    protected int armor;
 
     protected Ability selectedAbility;
     protected boolean targetsSelected;
@@ -54,20 +56,25 @@ public abstract class Creature {
         selectedTargets = new ArrayList<>();
     }
 
-    public void attack(Arena arena, int damage, int chance) throws InterruptedException{
+    public boolean attack(Arena arena, int damage, int chance) throws InterruptedException{
         Thread.sleep(500);
         if (random.nextInt( 101) >= chance) {
             arena.writeOutput(this.name + " dodged the attack");
-            return;
+            return false;
         }
+        damage-=armor;
         arena.writeOutput(this.name + " took " + damage + " damage");
         this.damage(damage);
         if (!this.alive()) {
             arena.writeOutput(this.name + " died");
         }
+        return true;
     }
 
     public void damage(int damage) {
+        if (damage < 0) {
+            damage = 0;
+        }
         this.hp-=damage;
     }
 
@@ -80,7 +87,7 @@ public abstract class Creature {
     }
 
     public String status() {
-        return alive() ? name + " : " + hp + "/" + maxhp : "Knocked Out";
+        return alive() ? name + " : " + hp + "/" + maxhp + (armor>0 ? " " + armor : "") : "Knocked Out";
     }
 
     public String getImageSource() {
@@ -172,5 +179,9 @@ public abstract class Creature {
     }
     public boolean hasMaxHealth() {
         return hp >= maxhp;
+    }
+
+    public void modifyArmor(int addedArmor) {
+        this.armor+=addedArmor;
     }
 }
