@@ -1,0 +1,116 @@
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n  xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd\">\r\n  <modelVersion>4.0.0</modelVersion>\r\n  <groupId>org.example</groupId>\r\n  <artifactId>Java_Fighters</artifactId>\r\n  <version>1.0-SNAPSHOT</version>\r\n  <name>Archetype - Java_Fighters</name>\r\n  <url>http://maven.apache.org</url>\r\n  <build>\r\n    <plugins>\r\n      <plugin>\r\n        <groupId>org.apache.maven.plugins</groupId>\r\n        <artifactId>maven-compiler-plugin</artifactId>\r\n        <configuration>\r\n          <source>8</source>\r\n          <target>8</target>\r\n        </configuration>\r\n      </plugin>\r\n    </plugins>\r\n  </build>\r\n</project>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision 0fe851886f9a17795e2b33e91a814c6b7dd066e9)
++++ b/pom.xml	(date 1729162321666)
+@@ -1,19 +1,35 @@
+-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
++<project>
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>org.example</groupId>
+   <artifactId>Java_Fighters</artifactId>
+   <version>1.0-SNAPSHOT</version>
+   <name>Archetype - Java_Fighters</name>
+   <url>http://maven.apache.org</url>
++
++  <dependencies>
++    <dependency>
++      <groupId>junit</groupId>
++      <artifactId>junit</artifactId>
++      <version>4.11</version>
++      <scope>test</scope>
++    </dependency>
++  </dependencies>
++
+   <build>
+     <plugins>
+       <plugin>
++        <!-- Build an executable JAR -->
+         <groupId>org.apache.maven.plugins</groupId>
+-        <artifactId>maven-compiler-plugin</artifactId>
++        <artifactId>maven-jar-plugin</artifactId>
++        <version>3.1.0</version>
+         <configuration>
+-          <source>8</source>
+-          <target>8</target>
++          <archive>
++            <manifest>
++              <addClasspath>true</addClasspath>
++              <classpathPrefix>lib/</classpathPrefix>
++              <mainClass>Game</mainClass>
++            </manifest>
++          </archive>
+         </configuration>
+       </plugin>
+     </plugins>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"12c9bbc0-35da-40da-80af-acda19b4c4e0\" name=\"Changes\" comment=\"Added Winning and added pauses between actions\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Abilities/AttackAbility.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Abilities/AttackAbility.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/GameStuff/Creature.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/GameStuff/Creature.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Item/Item.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Item/Item.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Menu/GameForm.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Menu/GameForm.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/../..\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2nTSYg52bITM5G7fpSzielMZBGu\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n    <option name=\"showMembers\" value=\"true\" />\r\n    <option name=\"showVisibilityIcons\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;false&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/NielsvandenHeuvel/GitHub/JavaFighters/code/Java Fighters/src/main/resources/assets/textures/characters/fist&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\NielsvandenHeuvel\\GitHub\\JavaFighters\\code\\Java Fighters\\src\\main\\resources\\assets\\textures\\characters\\fist\" />\r\n      <recent name=\"C:\\Users\\NielsvandenHeuvel\\GitHub\\JavaFighters\\code\\Java Fighters\\src\\main\\resources\\assets\\textures\\characters\\gun\" />\r\n      <recent name=\"C:\\Users\\NielsvandenHeuvel\\GitHub\\JavaFighters\\code\\Java Fighters\\src\\main\\resources\\assets\\textures\\characters\\sword\" />\r\n      <recent name=\"C:\\Users\\NielsvandenHeuvel\\GitHub\\JavaFighters\\code\\Java Fighters\\src\\main\\resources\\assets\\textures\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\NielsvandenHeuvel\\GitHub\\JavaFighters\\code\\Java Fighters\\src\\main\\resources\\assets\\textures\\characters\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Unnamed\" type=\"Application\" factoryName=\"Application\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Game\" />\r\n      <module name=\"Java_Fighters\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"12c9bbc0-35da-40da-80af-acda19b4c4e0\" name=\"Changes\" comment=\"\" />\r\n      <created>1728995623761</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1728995623761</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Added some abilities, changed text posting method\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728999739965</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728999739965</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Added Death\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1729001423136</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1729001423136</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Added Death\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1729001452808</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1729001452808</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Added Winning and added pauses between actions\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1729149901641</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1729149901641</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Added some abilities, changed text posting method\" />\r\n    <MESSAGE value=\"Added Death\" />\r\n    <MESSAGE value=\"Added Winning and added pauses between actions\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Added Winning and added pauses between actions\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <watches-manager>\r\n      <inline-watch fileUrl=\"file://$PROJECT_DIR$/src/main/java/GameStuff/Creature.java\" line=\"11\">\r\n        <watch expression=\";\" language=\"JAVA\" />\r\n      </inline-watch>\r\n    </watches-manager>\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/Java_Fighters$Unnamed.ic\" NAME=\"Unnamed Coverage Results\" MODIFIED=\"1729150912994\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 0fe851886f9a17795e2b33e91a814c6b7dd066e9)
++++ b/.idea/workspace.xml	(date 1729162244323)
+@@ -6,10 +6,7 @@
+   <component name="ChangeListManager">
+     <list default="true" id="12c9bbc0-35da-40da-80af-acda19b4c4e0" name="Changes" comment="Added Winning and added pauses between actions">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/AttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/AttackAbility.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Item/Item.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -38,11 +35,15 @@
+   </component>
+   <component name="PropertiesComponent">{
+   &quot;keyToString&quot;: {
++    &quot;JAR Application.Unnamed.executor&quot;: &quot;Run&quot;,
++    &quot;Maven.Java_Fighters [compile].executor&quot;: &quot;Run&quot;,
++    &quot;Maven.Java_Fighters [package].executor&quot;: &quot;Run&quot;,
+     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;false&quot;,
+     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/NielsvandenHeuvel/GitHub/JavaFighters/code/Java Fighters/src/main/resources/assets/textures/characters/fist&quot;
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/20241137/OneDrive - TU Eindhoven/Documents/GitHub/JavaFighters/code/Java Fighters/target/Java_Fighters-1.0-SNAPSHOT.jar&quot;
+   }
+ }</component>
+   <component name="RecentsManager">
+@@ -56,7 +57,7 @@
+       <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters" />
+     </key>
+   </component>
+-  <component name="RunManager">
++  <component name="RunManager" selected="JAR Application.runJar">
+     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="Game" />
+       <module name="Java_Fighters" />
+@@ -64,6 +65,16 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <configuration name="runJar" type="JarApplication">
++      <option name="JAR_PATH" value="$PROJECT_DIR$/target/Java_Fighters-1.0-SNAPSHOT.jar" />
++      <option name="WORKING_DIRECTORY" value="C:\Users\20241137\OneDrive - TU Eindhoven\Documents\GitHub\JavaFighters\code\Java Fighters" />
++      <option name="ALTERNATIVE_JRE_PATH" />
++      <method v="2" />
++    </configuration>
++    <list>
++      <item itemvalue="Application.Unnamed" />
++      <item itemvalue="JAR Application.runJar" />
++    </list>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
