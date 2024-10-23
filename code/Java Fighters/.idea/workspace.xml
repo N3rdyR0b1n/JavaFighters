@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="Java_Fighters:jar" />
-    </artifacts-to-build>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12c9bbc0-35da-40da-80af-acda19b4c4e0" name="Changes" comment="Added Winning and added pauses between actions">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Item/UsableItem.java" afterDir="false" />
+    <list default="true" id="daec01c2-3375-4041-9eb9-b711cc2b9a4f" name="Changes" comment="Added sparing, Defending">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Java_Fighters_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_15_2024_2_23_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_15_2024_2_23_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_17_2024_12_53_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_17_2024_12_53_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/AttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/AttackAbility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/DefendAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/DefendAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/SpareAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/SpareAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/AdrenalineAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/AdrenalineAbility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/FalconPunchAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/FalconPunchAttack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/PunchAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/PunchAttack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/QuickDrawAttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/QuickDrawAttackAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/ShootAttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/ShootAttackAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/TriggerFinger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/TriggerFinger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Audio/SoundEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Audio/SoundEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Ability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Ability.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Arena.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/MainMenuForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/MainMenuForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/TestingFeaturesForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/TestingFeaturesForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Util/AbilityUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/AbilityUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Util/SoundUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/SoundUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 4
 }</component>
-  <component name="ProjectId" id="2nTSYg52bITM5G7fpSzielMZBGu" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2nnOXZfD5sxIEg0kHBSmiokyfnB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -53,30 +53,15 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;false&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/NielsvandenHeuvel/OneDrive - Fam. van den Heuvel/TUE/Java_Fighters_Laptop/JavaFighters/code/Java Fighters/target/Java_Fighters-1.0-SNAPSHOT.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\fist" />
-      <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\gun" />
-      <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters\sword" />
-      <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\NielsvandenHeuvel\GitHub\JavaFighters\code\Java Fighters\src\main\resources\assets\textures\characters" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.Unnamed">
+  <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="Java_Fighters" />
@@ -84,76 +69,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Unnamed" type="JarApplication" nameIsGenerated="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/target/Java_Fighters-1.0-SNAPSHOT.jar" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\NielsvandenHeuvel\OneDrive - Fam. van den Heuvel\TUE\Java_Fighters_Laptop\JavaFighters\code\Java Fighters" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Application.Unnamed" />
-      <item itemvalue="JAR Application.Unnamed" />
-    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="12c9bbc0-35da-40da-80af-acda19b4c4e0" name="Changes" comment="" />
-      <created>1728995623761</created>
+      <changelist id="daec01c2-3375-4041-9eb9-b711cc2b9a4f" name="Changes" comment="" />
+      <created>1729605418293</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1728995623761</updated>
+      <updated>1729605418293</updated>
     </task>
-    <task id="LOCAL-00001" summary="Added some abilities, changed text posting method">
-      <option name="closed" value="true" />
-      <created>1728999739965</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1728999739965</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Added Death">
-      <option name="closed" value="true" />
-      <created>1729001423136</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1729001423136</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Added Death">
-      <option name="closed" value="true" />
-      <created>1729001452808</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1729001452808</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Added Winning and added pauses between actions">
-      <option name="closed" value="true" />
-      <created>1729149901641</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1729149901641</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added some abilities, changed text posting method" />
-    <MESSAGE value="Added Death" />
-    <MESSAGE value="Added Winning and added pauses between actions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Winning and added pauses between actions" />
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" line="11">
-        <watch expression=";" language="JAVA" />
-      </inline-watch>
-    </watches-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Java_Fighters$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1729150912994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

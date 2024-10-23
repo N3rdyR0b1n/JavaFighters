@@ -10,7 +10,7 @@ import java.util.jar.JarEntry;
 
 public class TriggerFinger extends Ability {
     public TriggerFinger() {
-        super("Trigger finger", 1, 1,0);
+        super("Trigger finger", 1, 0,0);
     }
 
     @Override

@@ -17,7 +17,7 @@ public class TestingFeaturesForm extends JFrame {
     public TestingFeaturesForm() {
         super();
         setTitle("Settings!");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         pack();
         setVisible(true);
         setSize(500, 500);

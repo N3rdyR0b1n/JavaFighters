@@ -6,28 +6,48 @@ import GameStuff.Arena;
 import GameStuff.Creature;
 import Util.AbilityUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FalconPunchAttack extends AttackAbility {
 
-    private Creature target = null;
+    private List<Creature> target = new ArrayList<>();
     private int burningTicks = 0;
     public FalconPunchAttack() {
-        super("Falcon Punch", 1, 0, 10, 15, 50, 1);
+        super("Falcon Punch", 3, 0, 10, 15, 50, 1);
     }
 
     @Override
     public void perform(Arena world, Creature user, List<Creature> targets) throws InterruptedException {
-        super.perform(world, user, targets);
+        cooldownProgress = cooldown;
+        world.writeOutput(user + " used " + name);
+        int min = getMinDamage(user);
+        int max = getMaxdamage(user) + 1;
+        int chance = getHitChance(user);
+        for (Creature creature : targets) {
+            if (creature.attack(world, AbilityUtil.getRandom(min, max), chance)) {
+                target.add(creature);
+            }
+        }
+        if (!targets.isEmpty()) {
+            burningTicks+=3;
+        }
     }
 
     @Override
-    public void Update(Arena arena, Creature user) {
+    public void Update(Arena arena, Creature user) throws InterruptedException {
         super.Update(arena, user);
         if (burningTicks > 0) {
-            int damage = AbilityUtil.getRandom(1, 6);
-            target.damage(damage);
-            arena.writeOutput(target + " took " + damage + " fire damage.");
+            for (Creature creature : target) {
+                int damage = AbilityUtil.getRandom(1, 6);
+                creature.attack(arena, damage, 100);
+                Thread.sleep(500);
+                arena.writeOutput(creature + " took " + damage + " fire damage.");
+            }
+            burningTicks--;
+        }
+        else if (!target.isEmpty()) {
+            target.clear();
         }
     }
 }

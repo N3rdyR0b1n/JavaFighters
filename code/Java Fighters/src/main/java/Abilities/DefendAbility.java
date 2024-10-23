@@ -13,7 +13,7 @@ public class DefendAbility extends Ability {
     int duration = 0;
 
     @Override
-    public void Update(Arena arena, Creature user) {
+    public void Update(Arena arena, Creature user) throws InterruptedException {
         super.Update(arena, user);
         duration--;
         if (duration == 0) {

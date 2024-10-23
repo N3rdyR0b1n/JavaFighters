@@ -11,7 +11,7 @@ import java.util.Random;
 public class AdrenalineAbility extends Ability {
     public int duration;
     public AdrenalineAbility() {
-        super("Adrenaline", 1, 1, 0);
+        super("Adrenaline", 1, 0, 0);
         duration = 0;
     }
 
@@ -22,7 +22,7 @@ public class AdrenalineAbility extends Ability {
     }
 
     @Override
-    public void Update(Arena arena, Creature user) {
+    public void Update(Arena arena, Creature user) throws InterruptedException {
         super.Update(arena, user);
         if (duration > 0) {
             duration--;

@@ -5,12 +5,20 @@ import java.util.List;
 
 public abstract class Ability {
     protected String name;
-    private int cooldown;
-    private int cooldownProgress;
+    protected int cooldown;
+    protected int cooldownProgress;
     private int targets;
 
     public Ability(String name, int cooldown, int cooldownProgress, int targets) {
         this(name, targets);
+        // Preventing negative cooldown durations
+        // Artificially raising cooldown by 1 due to the fact that
+        // the turn at which the ability itself gets used counts for
+        // the turn in which cooldowns will get reduced.
+        if (cooldown < 0) {
+            cooldown = 0;
+        }
+        cooldown++;
         this.cooldown = cooldown;
         this.cooldownProgress = cooldownProgress;
     }
@@ -27,10 +35,10 @@ public abstract class Ability {
         cooldownProgress = cooldown;
     }
 
-    public boolean canPerform(Arena world, Creature creature, List<Creature> targets) {
+    public boolean canPerform(Arena world, Creature creature) {
         return cooldownProgress <=0;
     }
-    public void Update(Arena arena, Creature user) {
+    public void Update(Arena arena, Creature user) throws InterruptedException {
         cooldownProgress--;
     }
 
@@ -49,5 +57,13 @@ public abstract class Ability {
 
     public int getTargets() {
         return targets;
+    }
+
+    public ArrayList getInfo() {
+        ArrayList<String> info = new ArrayList<>();
+        info.add(name);
+        info.add("Cooldown: " + cooldownProgress);
+        info.add("Max Cooldown: " + cooldown);
+        return info;
     }
 }

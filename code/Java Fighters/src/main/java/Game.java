@@ -22,6 +22,8 @@ public class Game {
         MenuInfo.init();
         System.out.println(":3");
         MainMenuForm form = new MainMenuForm();
+        
+
     }
 
 

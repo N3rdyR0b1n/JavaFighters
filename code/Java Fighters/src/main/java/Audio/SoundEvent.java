@@ -17,11 +17,7 @@ public class SoundEvent {
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(file);
             clip.open(inputStream);
             clip.start();
-        } catch (UnsupportedAudioFileException ex) {
-            throw new RuntimeException(ex);
-        } catch (LineUnavailableException ex) {
-            throw new RuntimeException(ex);
-        } catch (IOException ex) {
+        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException ex) {
             throw new RuntimeException(ex);
         }
     }
@@ -33,11 +29,7 @@ public class SoundEvent {
             clip.open(inputStream);
             clip.start();
             return clip;
-        } catch (UnsupportedAudioFileException ex) {
-            throw new RuntimeException(ex);
-        } catch (LineUnavailableException ex) {
-            throw new RuntimeException(ex);
-        } catch (IOException ex) {
+        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException ex) {
             throw new RuntimeException(ex);
         }
     }

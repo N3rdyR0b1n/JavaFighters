@@ -5,6 +5,7 @@ import GameStuff.Arena;
 import GameStuff.Creature;
 import Util.AbilityUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -41,5 +42,11 @@ public class AttackAbility extends Ability {
         return accuracy;
     }
 
-
+    @Override
+    public ArrayList getInfo() {
+        ArrayList list = super.getInfo();
+        list.add("Damage: " + mindamage + "-" + maxdamage);
+        list.add("Accuracy: " + accuracy);
+        return list;
+    }
 }

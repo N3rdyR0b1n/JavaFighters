@@ -56,11 +56,15 @@ public class GameForm extends JFrame {
         this.arena = arena;
         loadElements();
         setVisible(true);
+
+
+
     }
 
     private void tick(ActionEvent e) {
         updateCharacters();
-        scrollPane.getVerticalScrollBar();
+
+
     }
 
     public void load() {
@@ -80,6 +84,7 @@ public class GameForm extends JFrame {
 
         arena.setTextOutput(text);
         actionlog.setModel(text);
+        actionlog.setAutoscrolls(true);
         TextUtil.fontify(actionlog);
     }
 
@@ -248,7 +253,9 @@ public class GameForm extends JFrame {
             return false;
         }
         Ability selectedAbility = abilities.getSelectedValue();
-
+        if (!selectedAbility.canPerform(arena, currentCreature)) {
+            return false;
+        }
         currentCreature.setSelectedAbility(selectedAbility);
         return true;
     }

@@ -101,7 +101,11 @@ public abstract class Creature {
     public void turnTick(Arena arena) {
         for (List<Ability> abilityList : allActions) {
             for (Ability ability : abilityList) {
-                ability.Update(arena, this);
+                try {
+                    ability.Update(arena, this);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
@@ -183,5 +187,8 @@ public abstract class Creature {
 
     public void modifyArmor(int addedArmor) {
         this.armor+=addedArmor;
+    }
+    public int getHpPercent() {
+        return (int) (((float)hp/(float)maxhp) * 100);
     }
 }
