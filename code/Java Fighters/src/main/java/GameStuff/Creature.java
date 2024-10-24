@@ -62,7 +62,7 @@ public abstract class Creature {
             arena.writeOutput(this.name + " dodged the attack");
             return false;
         }
-        damage-=armor;
+        damage-=getArmor();
         arena.writeOutput(this.name + " took " + damage + " damage");
         this.damage(damage);
         if (!this.alive()) {
@@ -190,5 +190,8 @@ public abstract class Creature {
     }
     public int getHpPercent() {
         return (int) (((float)hp/(float)maxhp) * 100);
+    }
+    public int getArmor() {
+        return armor;
     }
 }

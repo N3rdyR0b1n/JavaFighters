@@ -40,7 +40,7 @@ public class FalconPunchAttack extends AttackAbility {
         if (burningTicks > 0) {
             for (Creature creature : target) {
                 int damage = AbilityUtil.getRandom(1, 6);
-                creature.attack(arena, damage, 100);
+                creature.damage(damage);
                 Thread.sleep(500);
                 arena.writeOutput(creature + " took " + damage + " fire damage.");
             }

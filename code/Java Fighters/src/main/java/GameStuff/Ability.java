@@ -18,7 +18,6 @@ public abstract class Ability {
         if (cooldown < 0) {
             cooldown = 0;
         }
-        cooldown++;
         this.cooldown = cooldown;
         this.cooldownProgress = cooldownProgress;
     }

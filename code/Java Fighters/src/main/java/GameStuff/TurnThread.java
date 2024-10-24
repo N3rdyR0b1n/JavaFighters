@@ -41,11 +41,13 @@ public class TurnThread extends Thread {
     }
 
     private void win(Arena arena, Player person) {
-
+        JOptionPane.showMessageDialog(null, person + " WON!!!");
+        String winner = person.toString() + " WON!!!";
+        String space = "--- --- ---     ";
         arena.writeOutput("--- --- --- --- --- --- --- --- --- --- ---");
-        arena.writeOutput("--- --- --- ---             --- --- --- ---");
-        arena.writeOutput("--- --- --- --- "+person+ "WON!!! --- --- --- ---");
-        arena.writeOutput("--- --- --- ---             --- --- --- ---");
+        arena.writeOutput(space);
+        arena.writeOutput(space + winner);
+        arena.writeOutput(space);
         arena.writeOutput("--- --- --- --- --- --- --- --- --- --- ---");
     }
     private boolean playerLost(Player player) {
