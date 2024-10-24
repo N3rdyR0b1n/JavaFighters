@@ -231,6 +231,7 @@ public class GameForm extends JFrame {
     }
 
     private void loadButtonOption(int optionType) {
+        onButtonPress();
         List<Ability> choices = arena.getCreatures().get(currentCharacter).getByType(optionType);
         jlistAbilities.clear();
         if (choices != null) {
@@ -239,6 +240,7 @@ public class GameForm extends JFrame {
     }
 
     private void loadInventory() {
+        onButtonPress();
         List<Ability> choices = arena.getRelevantItems(currentCharacter < 3);
         ArrayList<Ability> items = new ArrayList<Ability>(choices);
         jlistAbilities.clear();
@@ -328,5 +330,11 @@ public class GameForm extends JFrame {
     public void dispose() {
         mainform.setVisible(true);
         super.dispose();
+    }
+    private void onButtonPress() {
+        Creature creature = arena.getCreatures().get(currentCharacter);
+        creature.clearSelectedAbility();
+        creature.clearTargets();
+        jlistTargets.clear();
     }
 }

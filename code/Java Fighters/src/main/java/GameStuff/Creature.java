@@ -87,7 +87,20 @@ public abstract class Creature {
     }
 
     public String status() {
-        return alive() ? name + " : " + hp + "/" + maxhp + (armor>0 ? " - " + armor + " def" : "") : "Knocked Out";
+        if (!alive()) { return "Knocked Out"; }
+        StringBuilder builder = new StringBuilder();
+        builder.append(name);
+        builder.append(" : ");
+        builder.append(hp); builder.append("/"); builder.append(maxhp);
+        if (armor != 0) {
+            builder.append(" : ");
+            builder.append(armor); builder.append(" def");
+        }
+        if (extraDamage != 0) {
+            builder.append(" : ");
+            builder.append(extraDamage); builder.append(" atk");
+        }
+        return builder.toString();
     }
 
     public String getImageSource() {
