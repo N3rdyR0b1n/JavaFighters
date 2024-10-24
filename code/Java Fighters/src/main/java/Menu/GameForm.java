@@ -179,18 +179,18 @@ public class GameForm extends JFrame {
                 }
                 oldcreature.clearSelectedAbility();
                 int current = currentCharacter;
-                currentCharacter--;
                 while (currentCharacter % 3 != 0) {
+                    currentCharacter--;
                     Creature creature = creatures.get(currentCharacter);
                     if (creature.alive()) {
+                        creature.clearSelectedAbility();
+                        creature.clearTargets();
                         break;
                     }
-                    currentCharacter--;
                 }
                 if (currentCharacter < 0 || currentCharacter < 3 && current >= 3) {
                     currentCharacter = current;
                 }
-
                 if (currentCharacter < 0) {
                     currentCharacter= arena.getCreatures().size()-1;
                 }

@@ -87,7 +87,7 @@ public abstract class Creature {
     }
 
     public String status() {
-        return alive() ? name + " : " + hp + "/" + maxhp + (armor>0 ? " " + armor : "") : "Knocked Out";
+        return alive() ? name + " : " + hp + "/" + maxhp + (armor>0 ? " - " + armor + " def" : "") : "Knocked Out";
     }
 
     public String getImageSource() {

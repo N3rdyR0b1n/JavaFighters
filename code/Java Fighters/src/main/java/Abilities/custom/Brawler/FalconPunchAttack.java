@@ -19,7 +19,7 @@ public class FalconPunchAttack extends AttackAbility {
 
     @Override
     public void perform(Arena world, Creature user, List<Creature> targets) throws InterruptedException {
-        cooldownProgress = cooldown;
+        cooldownProgress = cooldown + 1;
         world.writeOutput(user + " used " + name);
         int min = getMinDamage(user);
         int max = getMaxdamage(user) + 1;

@@ -9,7 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="daec01c2-3375-4041-9eb9-b711cc2b9a4f" name="Changes" comment="Added sparing, Defending">
+    <list default="true" id="daec01c2-3375-4041-9eb9-b711cc2b9a4f" name="Changes" comment="Added item decreasing from being used, form interaction where closing the game form opens the main form">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Java_Fighters_jar/Java_Fighters.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Java_Fighters_jar/Java_Fighters.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/FalconPunchAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/FalconPunchAttack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/QuickDrawAttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/QuickDrawAttackAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/ShootAttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/ShootAttackAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Ability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Ability.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Creature.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" afterDir="false" />
     </list>
@@ -61,6 +67,30 @@
       <option name="presentableId" value="Default" />
       <updated>1729605418293</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added item decreasing from being used, form interaction where closing the game form opens the main form">
+      <option name="closed" value="true" />
+      <created>1729751535462</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1729751535462</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added item decreasing from being used, form interaction where closing the game form opens the main form" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added item decreasing from being used, form interaction where closing the game form opens the main form" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Menu/GameForm.java</url>
+          <line>183</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

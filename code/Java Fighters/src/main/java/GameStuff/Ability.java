@@ -31,7 +31,7 @@ public abstract class Ability {
 
     public void perform(Arena world, Creature user, List<Creature> targets) throws InterruptedException {
         world.writeOutput(user + " used " + name);
-        cooldownProgress = cooldown;
+        cooldownProgress = cooldown + 1;
     }
 
     public boolean canPerform(Arena world, Creature creature) {
@@ -51,7 +51,7 @@ public abstract class Ability {
 
     @Override
     public String toString() {
-        return name + ((cooldownProgress>0) ? cooldownProgress + " turns CD" : "READY");
+        return name + ((cooldownProgress>0) ? cooldownProgress + " turns CD left " : " READY ") + cooldown + " CD ";
     }
 
     public int getTargets() {
