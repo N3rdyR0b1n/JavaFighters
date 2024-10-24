@@ -102,7 +102,7 @@ public class MainMenuForm extends JFrame{
 
         Arena arena = new Arena(player1, player2);
 
-        GameForm form = new GameForm(arena);
+        GameForm form = new GameForm(arena, this);
         form.load();
 
 

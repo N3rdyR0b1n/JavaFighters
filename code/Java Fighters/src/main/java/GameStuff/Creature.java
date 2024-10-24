@@ -112,6 +112,7 @@ public abstract class Creature {
 
     public void onTurn(Arena arena) {
         hasTurn = true;
+
     }
 
     public void endTurn(Arena arena) {

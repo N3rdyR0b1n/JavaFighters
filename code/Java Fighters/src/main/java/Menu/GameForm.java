@@ -43,13 +43,16 @@ public class GameForm extends JFrame {
     private int counter=0;
 
     private Arena arena;
+    private JFrame mainform;
 
-    public GameForm(Arena arena) {
+    public GameForm(Arena arena, JFrame form) {
         super();
+        this.mainform = form;
+        form.setVisible(false);
         abilities.setModel(jlistAbilities);
         targets.setModel(jlistTargets);
         setContentPane(mainPanel);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         pack();
         setSize(MenuInfo.WIDTH, MenuInfo.HEIGHT);
         timer.start();
@@ -60,7 +63,6 @@ public class GameForm extends JFrame {
 
 
     }
-
     private void tick(ActionEvent e) {
         updateCharacters();
 
@@ -169,7 +171,13 @@ public class GameForm extends JFrame {
                     return;
                 }
                 List<Creature> creatures = arena.getCreatures();
-                creatures.get(currentCharacter).endTurn(arena);
+                Creature oldcreature = creatures.get(currentCharacter);
+                oldcreature.endTurn(arena);
+                if (oldcreature.getSelectedAbility() instanceof Item) {
+                    Player player = arena.getPlayer( currentCharacter < 3 ? 1 : 2);
+                    player.getInventory().add(oldcreature.getSelectedAbility());
+                }
+                oldcreature.clearSelectedAbility();
                 int current = currentCharacter;
                 currentCharacter--;
                 while (currentCharacter % 3 != 0) {
@@ -256,7 +264,14 @@ public class GameForm extends JFrame {
         if (!selectedAbility.canPerform(arena, currentCreature)) {
             return false;
         }
+        if (selectedAbility instanceof Item) {
+            Player player = arena.getPlayer(currentCharacter < 3 ? 1 : 2);
+            if (!player.getInventory().remove(selectedAbility)) {
+                return false;
+            }
+        }
         currentCreature.setSelectedAbility(selectedAbility);
+
         return true;
     }
 
@@ -309,4 +324,9 @@ public class GameForm extends JFrame {
         }
     }
 
+    @Override
+    public void dispose() {
+        mainform.setVisible(true);
+        super.dispose();
+    }
 }
