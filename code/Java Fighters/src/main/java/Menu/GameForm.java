@@ -8,8 +8,7 @@ import Util.TextUtil;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -23,6 +22,7 @@ public class GameForm extends JFrame {
     private JLabel creatureB1;
     private JLabel creatureB2;
     private JLabel creatureB3;
+    private JDialog popUp;
     private JButton fightButton;
     private JButton defendButton;
     private JButton actButton;
@@ -60,13 +60,11 @@ public class GameForm extends JFrame {
         loadElements();
         setVisible(true);
 
-
-
+        popUp = new JDialog();
     }
+
     private void tick(ActionEvent e) {
         updateCharacters();
-
-
     }
 
     public void load() {
@@ -228,6 +226,44 @@ public class GameForm extends JFrame {
                 loadInventory();
             }
         });
+        creatureA1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                openPopUp("LgWEbsgiuwbeguibsiugbiwbnsegubweiugbwihegbiuweg", creatureA1);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                closePopUp();
+            }
+        });
+    }
+
+    private void openPopUp(String message, JComponent component) {
+        popUp = new JDialog(new Frame(), "info");
+        popUp.setUndecorated(true);
+
+        JPanel panel = new JPanel();
+
+        JTextField text = new JTextField(message);
+        text.setEditable(false);
+        text.setBorder(BorderFactory.createEmptyBorder());
+
+        panel.add(text);
+        panel.setMaximumSize(new Dimension(component.getWidth(), 1000));
+
+        popUp.add(panel);
+        popUp.pack();
+        panel.setVisible(true);
+
+        popUp.setLocation(component.getX(), component.getY() - 5);
+        popUp.setSize(panel.getWidth(), panel.getHeight());
+
+        popUp.setVisible(true);
+    }
+
+    private void closePopUp() {
+        popUp.setVisible(false);
     }
 
     private void loadButtonOption(int optionType) {
