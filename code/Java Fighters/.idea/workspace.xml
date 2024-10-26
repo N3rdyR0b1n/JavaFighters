@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="daec01c2-3375-4041-9eb9-b711cc2b9a4f" name="Changes" comment="Displaying attack and defense of a creature, optimised string concatination in the creature class and made the menus a bit more idiot proof">
+    <list default="true" id="daec01c2-3375-4041-9eb9-b711cc2b9a4f" name="Changes" comment="Fixed rng">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" afterDir="false" />
     </list>
@@ -87,13 +87,22 @@
       <option name="project" value="LOCAL" />
       <updated>1729756369390</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixed rng">
+      <option name="closed" value="true" />
+      <created>1729760364316</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1729760364316</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added item decreasing from being used, form interaction where closing the game form opens the main form" />
     <MESSAGE value="Small balance changes, fixed going back turns and made information display more neatly" />
     <MESSAGE value="Displaying attack and defense of a creature, optimised string concatination in the creature class and made the menus a bit more idiot proof" />
-    <option name="LAST_COMMIT_MESSAGE" value="Displaying attack and defense of a creature, optimised string concatination in the creature class and made the menus a bit more idiot proof" />
+    <MESSAGE value="Fixed rng" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed rng" />
   </component>
 </project>

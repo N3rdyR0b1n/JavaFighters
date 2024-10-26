@@ -1,0 +1,75 @@
+Minor notes:
+Duration is counted for the turn it is used in. If a buff lasts 1 turn. It will only last during the first interaction screen.
+
+
+dssws
+>>> Healing items:
+
+Apple (4 - 6 hp)
+Healing Potion (10 - 20 hp)
+Tuna Salad (15 hp)
+Golden Apple (1 - 40)
+Pilk (-20 - 50)
+
+>>> Abilities : universal
+- Items are a shared inventory between your characters with limited supply.
+
+- Spare lets you remove an opponent from battle if they are below or equal to 30% of their health.
+
+- Defend lets you take 10 extra damage before losing health. (lasts 2 turns)
+
+>>> Abilities : Brawler
+
+- actions:
+
+-> Adrenaline (self)
+*cooldown : 1
+*duration: 3
+*special: Permanently increase damage by 2 (stackable) and heal 1 - 10 health. Both are applied on every turn for the duration. Using the ability while it's active will increase the duration by 3 more turns.
+
+- Attacks: 
+
+-> Punch
+*cooldown : 0
+*damage : 10 - 15
+*accuracy : 75%
+
+-> Drop Kick
+*cooldown : 0
+*damage : 15 - 25
+*accuracy : 50%
+
+-> Falcon Punch
+*cooldown : 3
+*damage : 10 - 15
+*hitchance : 50%
+*special: targets hit by falcon punch will burn for 3 turns taking 1 - 10 damage each time. 
+
+>>> Abilities : Cowboy
+
+- actions:
+
+-> Trigger Finger
+*cooldown : 1
+*special: permanently increases damage by 5 (stacks)
+
+- Attacks: 
+
+-> Quick Draw
+*cooldown : 0
+*damage : 5 - 10
+*accuracy : 85%
+
+-> High Noon
+*cooldown : 3
+*damage : 30
+*accuracy : 100%
+
+>>> Abilities : Sword
+
+-> Stab
+*cooldown : 0
+*damage : 12 - 18
+*accuracy : 60%
+
+
