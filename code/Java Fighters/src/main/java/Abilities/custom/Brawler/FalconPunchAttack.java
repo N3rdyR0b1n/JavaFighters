@@ -50,4 +50,11 @@ public class FalconPunchAttack extends AttackAbility {
             target.clear();
         }
     }
+
+    @Override
+    public String getDescription() {
+        StringBuffer sb = new StringBuffer(super.getDescription());
+        sb.append("\nDescription: <insert ability description here>");
+        return sb.toString();
+    }
 }

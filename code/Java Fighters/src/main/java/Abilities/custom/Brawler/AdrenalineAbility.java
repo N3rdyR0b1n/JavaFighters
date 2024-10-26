@@ -35,4 +35,11 @@ public class AdrenalineAbility extends Ability {
         }
 
     }
+
+    @Override
+    public String getDescription() {
+        StringBuffer sb = new StringBuffer(super.getDescription());
+        sb.append("\nDescription: <insert ability description here>");
+        return sb.toString();
+    }
 }

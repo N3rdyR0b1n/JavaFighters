@@ -41,12 +41,20 @@ public abstract class Ability {
         cooldownProgress--;
     }
 
-    public List<String> getDescription() {
+/*    public List<String> getDescription() {
         ArrayList<String> description = new ArrayList<>();
         description.add("Name: " + name);
         description.add("Status:" + ((cooldownProgress>0) ? cooldownProgress + " turns CD" : "READY"));
         description.add("Cooldown: " + cooldown);
         return description;
+    }*/
+
+    public String getDescription() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("Name: " + name + "\n");
+        sb.append("Status:" + ((cooldownProgress>0) ? cooldownProgress + " turns CD" : "READY") + "\n");
+        sb.append("Cooldown: " + cooldown);
+        return sb.toString();
     }
 
     @Override

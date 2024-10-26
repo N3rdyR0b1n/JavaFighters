@@ -14,12 +14,14 @@ public class Item extends Ability implements Cloneable{
     private String consumptionMessage;
     private int minHealing;
     private int maxHealing;
+    private String description;
 
-    public Item(String name, String consumptionmessage, int minHealing, int maxHealing) {
+    public Item(String name, String consumptionmessage, int minHealing, int maxHealing, String description) {
         super(name, 0);
         this.consumptionMessage = consumptionmessage;
         this.maxHealing = maxHealing;
         this.minHealing = minHealing;
+        this.description = description;
     }
 
     @Override
@@ -63,4 +65,10 @@ public class Item extends Ability implements Cloneable{
         }
     }
 
+    @Override
+    public String getDescription() {
+        StringBuffer sb = new StringBuffer(super.getDescription());
+        sb.append("\nDescription: " + description);
+        return sb.toString();
+    }
 }

@@ -20,4 +20,11 @@ public class TriggerFinger extends Ability {
         user.addExtraDamage(5);
         world.writeOutput(user + "'s damage has been increased by 5 !");
     }
+
+    @Override
+    public String getDescription() {
+        StringBuffer sb = new StringBuffer(super.getDescription());
+        sb.append("\nDescription: <insert ability description here>");
+        return sb.toString();
+    }
 }

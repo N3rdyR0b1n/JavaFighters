@@ -33,6 +33,7 @@ public class GameForm extends JFrame {
     private JLabel roundLbl;
     private JList<Creature> targets;
     private JList actionlog;
+    private JScrollPane abilitiesScroll;
     private List<JLabel> creatures;
     private DefaultListModel<Ability> jlistAbilities = new DefaultListModel<Ability>();
     private DefaultListModel<Creature> jlistTargets = new DefaultListModel<Creature>();
@@ -226,10 +227,73 @@ public class GameForm extends JFrame {
                 loadInventory();
             }
         });
+
+        abilities.addMouseMotionListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                closePopUp();
+                if(!abilities.isSelectionEmpty()) {
+                    System.out.println();
+                    openPopUp(abilities.getSelectedValue().getDescription(), abilities);
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                closePopUp();
+                if(!abilities.isSelectionEmpty()) {
+                    openPopUp(abilities.getSelectedValue().getDescription(), abilities);
+                }
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                closePopUp();
+                if(!abilities.isSelectionEmpty()) {
+                    openPopUp(abilities.getSelectedValue().getDescription(), abilities);
+                }
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                closePopUp();
+            }
+
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                closePopUp();
+                if(!abilities.isSelectionEmpty()) {
+                    openPopUp(abilities.getSelectedValue().getDescription(), abilities);
+                }
+            }
+        });
+
         creatureA1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                openPopUp("LgWEbsgiuwbeguibsiugbiwbnsegubweiugbwihegbiuweg", creatureA1);
+                openPopUp("This is first character of Player 1", creatureA1);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                closePopUp();
+            }
+        });
+        creatureA2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                openPopUp("This is second character of Player 1", creatureA2);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                closePopUp();
+            }
+        });
+        creatureA3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                openPopUp("This is third character of Player 1", creatureA3);
             }
 
             @Override
@@ -244,20 +308,35 @@ public class GameForm extends JFrame {
         popUp.setUndecorated(true);
 
         JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
 
-        JTextField text = new JTextField(message);
+        JTextArea text = new JTextArea(message);
+        TextUtil.fontify(text);
         text.setEditable(false);
-        text.setBorder(BorderFactory.createEmptyBorder());
+        text.setOpaque(false);
+        text.setLineWrap(true);
+        int rows = (int) Math.ceil(message.length() / (component.getWidth() / 6.3));
+        text.setRows(rows);
+        text.setBorder(BorderFactory.createEmptyBorder(5,5,0,0));
 
-        panel.add(text);
-        panel.setMaximumSize(new Dimension(component.getWidth(), 1000));
+        //JScrollPane scrollPane = new JScrollPane(text);
+        //panel.add(scrollPane, BorderLayout.CENTER);
+
+        panel.add(text, BorderLayout.CENTER);
+        text.setMaximumSize(new Dimension(component.getWidth() + 50, 10000));
+        //panel.setSize(new Dimension(component.getWidth(), 0));
 
         popUp.add(panel);
         popUp.pack();
         panel.setVisible(true);
 
-        popUp.setLocation(component.getX(), component.getY() - 5);
-        popUp.setSize(panel.getWidth(), panel.getHeight());
+        //System.out.println(component.getLocation().x + " " + component.getLocation().y);
+        //popUp.setLocation(component.getX(), component.getY() - text.getHeight() + 15);
+
+        Point mouseCoord = MouseInfo.getPointerInfo().getLocation();
+        popUp.setLocation(mouseCoord.x + 10, mouseCoord.y + 5);
+
+        popUp.setSize(component.getWidth() + 10, text.getHeight() + 10);
 
         popUp.setVisible(true);
     }
