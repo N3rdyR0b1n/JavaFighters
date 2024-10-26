@@ -7,6 +7,7 @@ import GameStuff.Creature;
 import Menu.GameForm;
 import Util.AbilityUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Item extends Ability implements Cloneable{
@@ -64,11 +65,11 @@ public class Item extends Ability implements Cloneable{
             id = updatedId;
         }
     }
-
     @Override
-    public String getDescription() {
-        StringBuffer sb = new StringBuffer(super.getDescription());
-        sb.append("\nDescription: " + description);
-        return sb.toString();
+    protected ArrayList getInfo() {
+        ArrayList<String> info = new ArrayList<>();
+        info.add(name);
+        info.add("Heals: " + minHealing + " - " + maxHealing + " hp");
+        return info;
     }
 }

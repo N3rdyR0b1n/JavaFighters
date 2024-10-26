@@ -10,7 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daec01c2-3375-4041-9eb9-b711cc2b9a4f" name="Changes" comment="Fixed rng">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/AttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/AttackAbility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/AdrenalineAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/AdrenalineAbility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/FalconPunchAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/FalconPunchAttack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/KickAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/KickAttack.java" afterDir="false" />
@@ -21,9 +23,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Sword/StabAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Sword/StabAttack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Ability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Ability.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Item/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Item/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Item/Items.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/GameForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/GameForm.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/GameForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +51,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }

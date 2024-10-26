@@ -5,6 +5,7 @@ import GameStuff.Arena;
 import GameStuff.Creature;
 import Util.AbilityUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -33,13 +34,14 @@ public class AdrenalineAbility extends Ability {
             arena.writeOutput(user + " healed " + health + "  hp");
             arena.writeOutput(user + "'s attack rose by 2");
         }
-
     }
-
     @Override
-    public String getDescription() {
-        StringBuffer sb = new StringBuffer(super.getDescription());
-        sb.append("\nDescription: <insert ability description here>");
-        return sb.toString();
+    protected ArrayList getInfo() {
+        ArrayList<String> info = super.getInfo();
+        info.add("Effects:");
+        info.add("Heals 1-10 hp for 3 turns");
+        info.add("Permanently increases atk by 2 for 3 turns");
+        info.add("Using the ability again while active increases duration by 3 turns");
+        return info;
     }
 }

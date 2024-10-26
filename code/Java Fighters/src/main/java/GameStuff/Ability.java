@@ -50,11 +50,14 @@ public abstract class Ability {
     }*/
 
     public String getDescription() {
+        List<String> items = getInfo();
         StringBuffer sb = new StringBuffer();
-        sb.append("Name: " + name + "\n");
-        sb.append("Status:" + ((cooldownProgress>0) ? cooldownProgress + " turns CD" : "READY") + "\n");
-        sb.append("Cooldown: " + cooldown);
-        return sb.toString();
+        int size = items.size();
+        for (int i = 0; i < size; i++) {
+            sb.append(items.get(i));
+            sb.append("\n");
+        }
+        return sb.toString().trim();
     }
 
     @Override
@@ -66,7 +69,7 @@ public abstract class Ability {
         return targets;
     }
 
-    public ArrayList getInfo() {
+    protected ArrayList<String> getInfo() {
         ArrayList<String> info = new ArrayList<>();
         info.add(name);
         info.add("Cooldown: " + cooldownProgress);

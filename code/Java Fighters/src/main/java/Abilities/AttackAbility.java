@@ -42,10 +42,10 @@ public class AttackAbility extends Ability {
     }
 
     @Override
-    public ArrayList getInfo() {
+    protected ArrayList getInfo() {
         ArrayList list = super.getInfo();
         list.add("Damage: " + mindamage + "-" + maxdamage);
-        list.add("Accuracy: " + accuracy);
+        list.add("Accuracy: " + accuracy + "%");
         return list;
     }
 }

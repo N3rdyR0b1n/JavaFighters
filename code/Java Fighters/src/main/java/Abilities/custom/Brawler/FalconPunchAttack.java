@@ -50,11 +50,11 @@ public class FalconPunchAttack extends AttackAbility {
             target.clear();
         }
     }
-
     @Override
-    public String getDescription() {
-        StringBuffer sb = new StringBuffer(super.getDescription());
-        sb.append("\nDescription: <insert ability description here>");
-        return sb.toString();
+    protected ArrayList getInfo() {
+        ArrayList<String> info = super.getInfo();
+        info.add("Effects: on succesfull hit");
+        info.add("deals 1-6 fire damage for 3 turns to afflicted target");
+        return info;
     }
 }
