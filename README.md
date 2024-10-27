@@ -4,6 +4,7 @@ Notes:
 - Niels : N3rdyR0b1n
 
 Advanced topic 1: written by Misha
+
 Advanced topic 2: written by Niels
 # Advanced topic 2 : Jar File Creation (maven)
 
