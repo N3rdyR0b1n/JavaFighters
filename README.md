@@ -18,7 +18,9 @@ Also as a side feature, it is possible to switch out assets in the game for adde
 
 ## Sources I used to learn Maven:
 https://www.baeldung.com/executable-jar-with-maven#thymeleaf-1
+
 https://www.baeldung.com/maven
+
 https://maven.apache.org/what-is-maven.html
 
 
@@ -36,5 +38,6 @@ Because all code was on github, my device and misha's device. We had multiple ba
 
 ## Sources used:
 https://docs.github.com/en/get-started
+
 https://youtu.be/8Dd7KRpKeaE?feature=shared
 
