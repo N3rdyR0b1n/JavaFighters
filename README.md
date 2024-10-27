@@ -33,3 +33,8 @@ All commits made to the project have a small description and note the user who m
 
 ## Easy backups
 Because all code was on github, my device and misha's device. We had multiple backups in case data got corrupted. We could also roll back to previous versions in case an update breaks the application. (Which i had to do after messing the project once, resulting in me re-pulling from git)
+
+## Sources used:
+https://docs.github.com/en/get-started
+https://youtu.be/8Dd7KRpKeaE?feature=shared
+
