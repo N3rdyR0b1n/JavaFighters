@@ -13,7 +13,8 @@ Our first advanced topic is Maven Configuration tool, which we used to assemble 
 During this research we have learned how to create and configure project using Maven framework, which helped us build an executable .jar file that can be run outside of IDE and on any device that has Java installed. Together with resource files, such as textures and audio files, that are placed outside of .jar file, we can create a user friendly way of running our game for any user.
 
 ## Why do we have and archive instead of single executable .jar?
-.jar file is an archive that contains executable code and other files that are created during compilation of project. Among these files there also can be resources like images or audio files. Because when our game is running we need to access said resources a lot, accessing them from withing archive would be much harder. For this reason we have located them in folder, from where they can be accessed much easier.
+.jar file is an archive that contains executable code and other files that are created during compilation of project. Among these files there also can be resources like images or audio files. Because when our game is running we need to access said resources a lot, accessing them from withing archive would be much harder. For this reason we have located them in folder, from where they can be accessed much easier (at least that is what I encountered while trying to implement it).
+Also as a side feature, it is possible to switch out assets in the game for added entertainment.
 
 ## Sources I used to learn Maven:
 https://www.baeldung.com/executable-jar-with-maven#thymeleaf-1
