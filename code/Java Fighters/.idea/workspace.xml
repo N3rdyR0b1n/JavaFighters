@@ -10,19 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daec01c2-3375-4041-9eb9-b711cc2b9a4f" name="Changes" comment="Fixed rng">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/AttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/AttackAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/AdrenalineAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/AdrenalineAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/FalconPunchAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/FalconPunchAttack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/KickAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/KickAttack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/PunchAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Brawler/PunchAttack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/QuickDrawAttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/QuickDrawAttackAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/ShootAttackAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/ShootAttackAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/TriggerFinger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Cowboy/TriggerFinger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Abilities/custom/Sword/StabAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Abilities/custom/Sword/StabAttack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameStuff/Ability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameStuff/Ability.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Item/Item.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,19 +31,19 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Unnamed.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Game" />
